@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TallContractorCollectionCell" customModule="ContractorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="500"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="399" height="500"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKI-H9-Rta">
+                        <rect key="frame" x="0.0" y="0.0" width="399" height="500"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cleaners" translatesAutoresizingMaskIntoConstraints="NO" id="cec-ZH-vr3">
+                                <rect key="frame" x="0.0" y="0.0" width="399" height="500"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eS-F7-zQ1">
+                                <rect key="frame" x="0.0" y="412" width="399" height="88"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="sv9-6v-7l8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Cleaners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOO-fc-q70">
+                                <rect key="frame" x="20" y="424" width="171" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 pros near you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mR0-ar-uIJ">
+                                <rect key="frame" x="20" y="462" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3eS-F7-zQ1" firstAttribute="bottom" secondItem="cec-ZH-vr3" secondAttribute="bottom" id="5Mv-0V-wXr"/>
+                            <constraint firstAttribute="bottom" secondItem="cec-ZH-vr3" secondAttribute="bottom" id="7Si-0Q-xo2"/>
+                            <constraint firstItem="mR0-ar-uIJ" firstAttribute="top" secondItem="eOO-fc-q70" secondAttribute="bottom" constant="8" id="8TO-xS-qmi"/>
+                            <constraint firstItem="3eS-F7-zQ1" firstAttribute="leading" secondItem="cec-ZH-vr3" secondAttribute="leading" id="BcE-tW-2di"/>
+                            <constraint firstItem="eOO-fc-q70" firstAttribute="top" secondItem="3eS-F7-zQ1" secondAttribute="top" constant="12" id="C3B-mo-uaZ"/>
+                            <constraint firstAttribute="trailing" secondItem="cec-ZH-vr3" secondAttribute="trailing" id="DU2-cL-aaf"/>
+                            <constraint firstItem="3eS-F7-zQ1" firstAttribute="trailing" secondItem="cec-ZH-vr3" secondAttribute="trailing" id="DjC-qm-Fx3"/>
+                            <constraint firstItem="cec-ZH-vr3" firstAttribute="top" secondItem="ZKI-H9-Rta" secondAttribute="top" id="DwD-31-wKz"/>
+                            <constraint firstItem="cec-ZH-vr3" firstAttribute="leading" secondItem="ZKI-H9-Rta" secondAttribute="leading" id="hgO-tF-ysp"/>
+                            <constraint firstItem="mR0-ar-uIJ" firstAttribute="leading" secondItem="eOO-fc-q70" secondAttribute="leading" id="sh8-kZ-rxy"/>
+                            <constraint firstItem="eOO-fc-q70" firstAttribute="leading" secondItem="ZKI-H9-Rta" secondAttribute="leading" constant="20" id="vil-mn-XtH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ZKI-H9-Rta" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JbV-Kc-FdP"/>
+                <constraint firstItem="ZKI-H9-Rta" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RHR-zE-dhQ"/>
+                <constraint firstAttribute="bottom" secondItem="ZKI-H9-Rta" secondAttribute="bottom" id="ceD-yG-6l5"/>
+                <constraint firstAttribute="trailing" secondItem="ZKI-H9-Rta" secondAttribute="trailing" id="dKS-pm-8zx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="399" height="500"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="0.20000000000000001"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="0.0" height="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="countLabel" destination="mR0-ar-uIJ" id="qn0-lK-EwT"/>
+                <outlet property="image" destination="cec-ZH-vr3" id="1ax-Dt-ccP"/>
+                <outlet property="nameLabel" destination="eOO-fc-q70" id="K52-ik-Rxe"/>
+            </connections>
+            <point key="canvasLocation" x="208.5" y="279"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cleaners" width="1920" height="1071"/>
+    </resources>
+</document>

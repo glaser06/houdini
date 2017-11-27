@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="259" id="gsy-ZO-bPw" customClass="MessageTableViewCell" customModule="ContractorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="259"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsy-ZO-bPw" id="7Kk-8m-hPa">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="258.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npk-5Z-qVC">
+                        <rect key="frame" x="77" y="12" width="231" height="234.5"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r03-jv-BnT">
+                                <rect key="frame" x="16" y="8" width="199" height="218.5"/>
+                                <string key="text">Hello, my master bedroom doorknob does not function when turned to the right. We may need to install a replacement. How much would it cost? Thanks!</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.16470588235294117" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="r03-jv-BnT" firstAttribute="top" secondItem="npk-5Z-qVC" secondAttribute="top" constant="8" id="4qO-ql-n4y"/>
+                            <constraint firstItem="r03-jv-BnT" firstAttribute="leading" secondItem="npk-5Z-qVC" secondAttribute="leading" constant="16" id="WBF-uD-7de"/>
+                            <constraint firstAttribute="trailing" secondItem="r03-jv-BnT" secondAttribute="trailing" constant="16" id="qpi-so-oKt"/>
+                            <constraint firstAttribute="bottom" secondItem="r03-jv-BnT" secondAttribute="bottom" constant="8" id="tWd-gE-zrp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="npk-5Z-qVC" secondAttribute="trailing" constant="12" id="Aoz-1Q-MCj"/>
+                    <constraint firstItem="npk-5Z-qVC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Kk-8m-hPa" secondAttribute="leading" constant="70" id="UTe-lL-6ug"/>
+                    <constraint firstItem="npk-5Z-qVC" firstAttribute="top" secondItem="7Kk-8m-hPa" secondAttribute="top" constant="12" id="k6F-ec-1MZ"/>
+                    <constraint firstAttribute="bottom" secondItem="npk-5Z-qVC" secondAttribute="bottom" constant="12" id="md4-u8-xCG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="p7B-sp-r5n"/>
+            <connections>
+                <outlet property="messageView" destination="r03-jv-BnT" id="KD9-E6-EZl"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="161.5"/>
+        </tableViewCell>
+    </objects>
+</document>

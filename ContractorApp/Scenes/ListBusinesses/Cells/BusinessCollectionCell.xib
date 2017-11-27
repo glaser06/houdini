@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BusinessCollectionCell" customModule="ContractorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="206" height="153"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23w-G9-pm2">
+                        <rect key="frame" x="2" y="2" width="206" height="149"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-dX-kLe">
+                                <rect key="frame" x="0.0" y="0.0" width="206" height="149"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plumber" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-PY-lGx">
+                                        <rect key="frame" x="0.0" y="0.0" width="206" height="149"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <view clipsSubviews="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoY-QD-4sv">
+                                        <rect key="frame" x="0.0" y="117" width="206" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZS-Kf-41M">
+                                        <rect key="frame" x="8" y="124" width="54" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CNk-PY-lGx" firstAttribute="leading" secondItem="9ec-dX-kLe" secondAttribute="leading" id="BmQ-CM-sNx"/>
+                                    <constraint firstItem="YoY-QD-4sv" firstAttribute="top" secondItem="wZS-Kf-41M" secondAttribute="top" constant="-7" id="DkP-1f-0Zp"/>
+                                    <constraint firstAttribute="trailing" secondItem="CNk-PY-lGx" secondAttribute="trailing" id="DmZ-92-2F3"/>
+                                    <constraint firstAttribute="bottom" secondItem="wZS-Kf-41M" secondAttribute="bottom" constant="8" id="IYl-eF-n4V"/>
+                                    <constraint firstItem="YoY-QD-4sv" firstAttribute="leading" secondItem="CNk-PY-lGx" secondAttribute="leading" id="NbE-9q-6Of"/>
+                                    <constraint firstItem="wZS-Kf-41M" firstAttribute="leading" secondItem="9ec-dX-kLe" secondAttribute="leading" constant="8" id="SCc-oh-d72"/>
+                                    <constraint firstItem="CNk-PY-lGx" firstAttribute="top" secondItem="9ec-dX-kLe" secondAttribute="top" id="ZeI-Ho-UYO"/>
+                                    <constraint firstItem="YoY-QD-4sv" firstAttribute="trailing" secondItem="CNk-PY-lGx" secondAttribute="trailing" id="kKo-XB-7kd"/>
+                                    <constraint firstAttribute="bottom" secondItem="CNk-PY-lGx" secondAttribute="bottom" id="w80-bo-k4L"/>
+                                    <constraint firstItem="YoY-QD-4sv" firstAttribute="bottom" secondItem="CNk-PY-lGx" secondAttribute="bottom" id="xkv-Em-0mN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9ec-dX-kLe" secondAttribute="trailing" id="DPG-GN-jSm"/>
+                            <constraint firstItem="9ec-dX-kLe" firstAttribute="top" secondItem="23w-G9-pm2" secondAttribute="top" id="jsh-0g-pCV"/>
+                            <constraint firstItem="9ec-dX-kLe" firstAttribute="leading" secondItem="23w-G9-pm2" secondAttribute="leading" id="ubo-BY-BDv"/>
+                            <constraint firstAttribute="bottom" secondItem="9ec-dX-kLe" secondAttribute="bottom" id="za6-LR-U2P"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="23w-G9-pm2" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="2" id="3f8-D6-o6k"/>
+                <constraint firstItem="23w-G9-pm2" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="2" id="Q7a-e3-kXi"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="23w-G9-pm2" secondAttribute="bottom" constant="2" id="iFL-yL-0QN"/>
+                <constraint firstItem="23w-G9-pm2" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="2" id="t97-Ab-29m"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="315" height="301"/>
+            <connections>
+                <outlet property="imageView" destination="CNk-PY-lGx" id="4Fp-zw-0j9"/>
+                <outlet property="typeLabel" destination="wZS-Kf-41M" id="QHa-sB-csd"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="177.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plumber" width="333" height="222"/>
+    </resources>
+</document>
