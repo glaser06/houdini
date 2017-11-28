@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="88" id="sv9-6v-7l8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Cleaners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOO-fc-q70">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Cleaners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="eOO-fc-q70">
                                 <rect key="frame" x="20" y="424" width="171" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,6 +55,7 @@
                             <constraint firstItem="3eS-F7-zQ1" firstAttribute="bottom" secondItem="cec-ZH-vr3" secondAttribute="bottom" id="5Mv-0V-wXr"/>
                             <constraint firstAttribute="bottom" secondItem="cec-ZH-vr3" secondAttribute="bottom" id="7Si-0Q-xo2"/>
                             <constraint firstItem="mR0-ar-uIJ" firstAttribute="top" secondItem="eOO-fc-q70" secondAttribute="bottom" constant="8" id="8TO-xS-qmi"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eOO-fc-q70" secondAttribute="trailing" constant="20" id="Ao5-CJ-NTl"/>
                             <constraint firstItem="3eS-F7-zQ1" firstAttribute="leading" secondItem="cec-ZH-vr3" secondAttribute="leading" id="BcE-tW-2di"/>
                             <constraint firstItem="eOO-fc-q70" firstAttribute="top" secondItem="3eS-F7-zQ1" secondAttribute="top" constant="12" id="C3B-mo-uaZ"/>
                             <constraint firstAttribute="trailing" secondItem="cec-ZH-vr3" secondAttribute="trailing" id="DU2-cL-aaf"/>
@@ -99,7 +100,7 @@
                 <outlet property="image" destination="cec-ZH-vr3" id="1ax-Dt-ccP"/>
                 <outlet property="nameLabel" destination="eOO-fc-q70" id="K52-ik-Rxe"/>
             </connections>
-            <point key="canvasLocation" x="208.5" y="279"/>
+            <point key="canvasLocation" x="-113" y="330"/>
         </collectionViewCell>
     </objects>
     <resources>

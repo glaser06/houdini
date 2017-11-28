@@ -19,6 +19,10 @@
 		E325B2171FBC72910023215F /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325B2111FBC72910023215F /* SignInRouter.swift */; };
 		E325B2181FBC72910023215F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325B2121FBC72910023215F /* SignInViewController.swift */; };
 		E325B2191FBC72910023215F /* SignInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325B2131FBC72910023215F /* SignInWorker.swift */; };
+		E341422E1FCD16BA0084F591 /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341422C1FCD16BA0084F591 /* CategorySection.swift */; };
+		E341422F1FCD16BA0084F591 /* CategorySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = E341422D1FCD16BA0084F591 /* CategorySection.xib */; };
+		E34142321FCD19D90084F591 /* TitleSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34142301FCD19D90084F591 /* TitleSectionHeader.swift */; };
+		E34142331FCD19D90084F591 /* TitleSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34142311FCD19D90084F591 /* TitleSectionHeader.xib */; };
 		E35AA6211FB2E18A005595B1 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */; };
 		E35AA6221FB2E18A005595B1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61C1FB2E18A005595B1 /* HomeModels.swift */; };
 		E35AA6231FB2E18A005595B1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */; };
@@ -150,6 +154,10 @@
 		E325B2111FBC72910023215F /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		E325B2121FBC72910023215F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E325B2131FBC72910023215F /* SignInWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWorker.swift; sourceTree = "<group>"; };
+		E341422C1FCD16BA0084F591 /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
+		E341422D1FCD16BA0084F591 /* CategorySection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySection.xib; sourceTree = "<group>"; };
+		E34142301FCD19D90084F591 /* TitleSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSectionHeader.swift; sourceTree = "<group>"; };
+		E34142311FCD19D90084F591 /* TitleSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleSectionHeader.xib; sourceTree = "<group>"; };
 		E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E35AA61C1FB2E18A005595B1 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -328,6 +336,10 @@
 			children = (
 				E35AA6281FB2E1E8005595B1 /* TallContractorCollectionCell.swift */,
 				E35AA6291FB2E1E8005595B1 /* TallContractorCollectionCell.xib */,
+				E341422C1FCD16BA0084F591 /* CategorySection.swift */,
+				E341422D1FCD16BA0084F591 /* CategorySection.xib */,
+				E34142301FCD19D90084F591 /* TitleSectionHeader.swift */,
+				E34142311FCD19D90084F591 /* TitleSectionHeader.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -487,6 +499,8 @@
 				E325B20D1FBC727D0023215F /* SignIn */,
 				E3F9E5101FB377E800ADEEB0 /* RequestQuoteViewController.swift */,
 				E35AA61A1FB2E176005595B1 /* Home */,
+				E3AF2AC01FA0A3EA00683FD0 /* ListBusinesses */,
+				E3AF2A901FA0914C00683FD0 /* ShowBusinesses */,
 				E35F21BC1FA0F483006C57E0 /* ShowCalendar */,
 				E35F21BA1FA0F45C006C57E0 /* ShowInbox */,
 				E35F21B41FA0D69C006C57E0 /* ShowProfile */,
@@ -494,8 +508,6 @@
 				E35F21951FA0C845006C57E0 /* ListProjects */,
 				E3AF2A831FA0913000683FD0 /* AddProject */,
 				E3AF2A9E1FA0934B00683FD0 /* AddMultimedia */,
-				E3AF2AC01FA0A3EA00683FD0 /* ListBusinesses */,
-				E3AF2A901FA0914C00683FD0 /* ShowBusinesses */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -757,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39E8D191F8E2ABC00CF11B6 /* LaunchScreen.storyboard in Resources */,
+				E341422F1FCD16BA0084F591 /* CategorySection.xib in Resources */,
 				E3AF2AC91FA0A49300683FD0 /* BusinessTypeCollectionCell.xib in Resources */,
 				E3AF2ACD1FA0A5E500683FD0 /* DisplayCategoryTableCell.xib in Resources */,
 				E39E8D161F8E2ABC00CF11B6 /* Assets.xcassets in Resources */,
@@ -769,6 +782,7 @@
 				E325B20A1FBC6C5B0023215F /* GoogleService-Info.plist in Resources */,
 				E35F21A61FA0CA9A006C57E0 /* ProjectTableCell.xib in Resources */,
 				E39E8D141F8E2ABC00CF11B6 /* Main.storyboard in Resources */,
+				E34142331FCD19D90084F591 /* TitleSectionHeader.xib in Resources */,
 				E35AA62B1FB2E1E8005595B1 /* TallContractorCollectionCell.xib in Resources */,
 				E3C11B9F1FB31021003F77A4 /* ReviewTableViewCell.xib in Resources */,
 				E3AF2AC51FA0A42500683FD0 /* BusinessCollectionCell.xib in Resources */,
@@ -987,12 +1001,14 @@
 				E3A18E4B1FB33617008E9385 /* ShowProfileWorker.swift in Sources */,
 				E3AF2A8A1FA0914900683FD0 /* ShowBusinessesInteractor.swift in Sources */,
 				E3AF2AD31FA0B89E00683FD0 /* ProjectWorker.swift in Sources */,
+				E34142321FCD19D90084F591 /* TitleSectionHeader.swift in Sources */,
 				E35F21AF1FA0D4C6006C57E0 /* MessagePresenter.swift in Sources */,
 				E35F21D11FA0FA7D006C57E0 /* ShowInboxPresenter.swift in Sources */,
 				E3F9E5111FB377E800ADEEB0 /* RequestQuoteViewController.swift in Sources */,
 				E39E8D3D1F8E34FE00CF11B6 /* UIViewExtensions.swift in Sources */,
 				E35F21CF1FA0FA7D006C57E0 /* ShowInboxInteractor.swift in Sources */,
 				E3AF2A811FA0912B00683FD0 /* AddProjectViewController.swift in Sources */,
+				E341422E1FCD16BA0084F591 /* CategorySection.swift in Sources */,
 				E3AF2A761FA08E2300683FD0 /* User.swift in Sources */,
 				E3AF2A8F1FA0914900683FD0 /* ShowBusinessesWorker.swift in Sources */,
 				E35AA6241FB2E18A005595B1 /* HomeRouter.swift in Sources */,

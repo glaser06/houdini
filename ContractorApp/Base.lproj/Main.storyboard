@@ -10,13 +10,18 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--List Businesses View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListBusinessesViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8ij-dL-dLU">
@@ -535,7 +540,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gms-Ef-aCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="7"/>
+            <point key="canvasLocation" x="3143.1999999999998" y="6.746626686656672"/>
         </scene>
         <!--Add Project View Controller-->
         <scene sceneID="aVm-XC-fZu">
@@ -718,14 +723,14 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnj-at-1P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="680.5097451274363"/>
+            <point key="canvasLocation" x="3103.1999999999998" y="680.5097451274363"/>
         </scene>
         <!--Show Inbox View Controller-->
         <scene sceneID="qAk-MG-wJY">
             <objects>
                 <viewController id="AAS-CW-mqw" customClass="ShowInboxViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKe-I4-7AS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVy-zJ-xZD" customClass="TableView" customModule="HGPlaceholders">
@@ -908,7 +913,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
             <objects>
                 <viewController id="Jvc-6c-Ya8" customClass="ShowProfileViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mAF-pB-ftu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XR-vi-AvO">
@@ -1061,15 +1066,15 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TBi-9u-hEH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nfg-fQ-9Kj">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nfg-fQ-9Kj">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TQU-Hu-m1I" kind="relationship" relationship="viewControllers" id="i1S-cY-BWK"/>
+                        <segue destination="PXo-5r-oS4" kind="relationship" relationship="viewControllers" id="i1S-cY-BWK"/>
                         <segue destination="ae6-H5-kQR" kind="relationship" relationship="viewControllers" id="tZb-Qk-Cb0"/>
                         <segue destination="G6r-yj-PpI" kind="relationship" relationship="viewControllers" id="JK0-Ph-vGj"/>
                         <segue destination="eRP-ZW-rje" kind="relationship" relationship="viewControllers" id="FGS-lL-mLA"/>
@@ -1112,6 +1117,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ru7-YJ-seB"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="signInButton" destination="Us1-4k-KWk" id="gGQ-IW-LXX"/>
                         <segue destination="TBi-9u-hEH" kind="showDetail" identifier="Home" id="lwT-Qf-81l"/>
@@ -1126,32 +1132,16 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
             <objects>
                 <viewController wantsFullScreenLayout="YES" id="TQU-Hu-m1I" customClass="HomeViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BcK-gu-EUw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscaping" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-Lx-J4K">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                            </imageView>
-                            <view alpha="0.87" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XN-Nx-ovQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore Home Services Ideas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozX-tr-uMN">
-                                <rect key="frame" x="20" y="65" width="290" height="57.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="I6u-Bv-7Bb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ORS-ou-09Q">
-                                <rect key="frame" x="0.0" y="122.5" width="375" height="475.5"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Og-Et-kc7" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout">
-                                    <size key="itemSize" width="259" height="390"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="6Og-Et-kc7">
+                                    <size key="itemSize" width="156" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="12" maxX="20" maxY="0.0"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="sideItemScale">
                                             <real key="value" value="0.90000000000000002"/>
@@ -1163,10 +1153,10 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IVD-yV-pyc">
-                                        <rect key="frame" x="0.0" y="43" width="259" height="390"/>
+                                        <rect key="frame" x="20" y="12" width="156" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="259" height="390"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1180,31 +1170,56 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7XN-Nx-ovQ" firstAttribute="bottom" secondItem="gkF-Lx-J4K" secondAttribute="bottom" id="441-Ie-S1g"/>
-                            <constraint firstItem="7XN-Nx-ovQ" firstAttribute="trailing" secondItem="gkF-Lx-J4K" secondAttribute="trailing" id="AUX-Aj-Lk7"/>
-                            <constraint firstItem="ozX-tr-uMN" firstAttribute="leading" secondItem="g6k-Vd-4la" secondAttribute="leading" constant="20" id="CkU-bg-HS9"/>
+                            <constraint firstItem="ORS-ou-09Q" firstAttribute="bottom" secondItem="g6k-Vd-4la" secondAttribute="bottom" id="EYa-Ve-YPh"/>
                             <constraint firstAttribute="trailing" secondItem="ORS-ou-09Q" secondAttribute="trailing" id="HVN-Yb-MKk"/>
-                            <constraint firstItem="ozX-tr-uMN" firstAttribute="top" secondItem="g6k-Vd-4la" secondAttribute="top" constant="45" id="IJs-5f-o96"/>
-                            <constraint firstItem="g6k-Vd-4la" firstAttribute="trailing" secondItem="gkF-Lx-J4K" secondAttribute="trailing" id="O7U-wn-zOX"/>
-                            <constraint firstItem="7XN-Nx-ovQ" firstAttribute="leading" secondItem="gkF-Lx-J4K" secondAttribute="leading" id="WYB-JL-pJM"/>
-                            <constraint firstItem="ORS-ou-09Q" firstAttribute="top" secondItem="ozX-tr-uMN" secondAttribute="bottom" id="YFC-en-UKa"/>
-                            <constraint firstItem="g6k-Vd-4la" firstAttribute="bottom" secondItem="gkF-Lx-J4K" secondAttribute="bottom" id="dfh-Ws-YIb"/>
-                            <constraint firstItem="gkF-Lx-J4K" firstAttribute="leading" secondItem="g6k-Vd-4la" secondAttribute="leading" id="igx-sA-FBO"/>
-                            <constraint firstItem="ORS-ou-09Q" firstAttribute="bottom" secondItem="g6k-Vd-4la" secondAttribute="bottom" constant="-20" id="sNt-Ut-D3e"/>
-                            <constraint firstItem="g6k-Vd-4la" firstAttribute="top" secondItem="gkF-Lx-J4K" secondAttribute="top" constant="20" id="x3W-sa-TXX"/>
-                            <constraint firstItem="7XN-Nx-ovQ" firstAttribute="top" secondItem="BcK-gu-EUw" secondAttribute="top" id="xwe-uz-o49"/>
+                            <constraint firstItem="ORS-ou-09Q" firstAttribute="top" secondItem="BcK-gu-EUw" secondAttribute="top" id="JVQ-68-xdn"/>
                             <constraint firstItem="ORS-ou-09Q" firstAttribute="leading" secondItem="BcK-gu-EUw" secondAttribute="leading" id="z9v-gW-jSZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6k-Vd-4la"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="star" id="56W-ri-8fC"/>
+                    <navigationItem key="navigationItem" id="E2x-s2-4Wp">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="chat" id="V8N-a1-DY8">
+                            <color key="tintColor" red="0.98039215690000003" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="7ly-uU-m3p">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-5t-jKj">
+                                    <rect key="frame" x="-65" y="-12" width="130" height="24"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expand-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="vmk-Ep-9Md">
+                                    <rect key="frame" x="73" y="-10" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="Idm-2m-rZw"/>
+                                        <constraint firstAttribute="width" secondItem="vmk-Ep-9Md" secondAttribute="height" multiplier="1:1" id="jOx-ii-eb6"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="vmk-Ep-9Md" firstAttribute="leading" secondItem="r2h-5t-jKj" secondAttribute="trailing" constant="8" id="MwR-B6-SUE"/>
+                                <constraint firstItem="vmk-Ep-9Md" firstAttribute="centerY" secondItem="7ly-uU-m3p" secondAttribute="centerY" id="XIT-3d-zca"/>
+                                <constraint firstItem="r2h-5t-jKj" firstAttribute="centerX" secondItem="7ly-uU-m3p" secondAttribute="centerX" id="fQ4-Qi-qI3"/>
+                                <constraint firstItem="r2h-5t-jKj" firstAttribute="centerY" secondItem="7ly-uU-m3p" secondAttribute="centerY" id="kga-QR-sxe"/>
+                            </constraints>
+                        </view>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="search" id="z3A-ka-pRX">
+                            <color key="tintColor" red="0.98039215690000003" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="ORS-ou-09Q" id="BKz-gf-aKS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsP-tm-oe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="116"/>
+            <point key="canvasLocation" x="1325.5999999999999" y="114.69265367316342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f2N-FA-HAe">
@@ -1287,11 +1302,33 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
             </objects>
             <point key="canvasLocation" x="456" y="2139.130434782609"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DcS-U8-1iN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PXo-5r-oS4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="star" id="56W-ri-8fC"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="BHK-rZ-oHB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TQU-Hu-m1I" kind="relationship" relationship="rootViewController" id="LRY-Bi-Gbq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdM-ms-Yur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635.20000000000005" y="115.14242878560721"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cancel" width="25" height="25"/>
         <image name="chat" width="25" height="25"/>
         <image name="close-square" width="25" height="25"/>
+        <image name="expand-arrow" width="25" height="25"/>
         <image name="landscaping" width="500" height="334"/>
         <image name="person1" width="851" height="750"/>
         <image name="plumber" width="333" height="222"/>

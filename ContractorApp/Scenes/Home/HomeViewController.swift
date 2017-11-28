@@ -70,6 +70,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     
     struct Identifier {
         static var categoryCell: String = "CategoryCell"
+        static var categorySection: String = "CategoryHeader"
+        static var titleSection: String = "TitleHeader"
     }
     var cellData: [(tag: String, count: Int, img: UIImage)] = []
     let layout = UPCarouselFlowLayout()
@@ -77,11 +79,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         self.categoriesCollectionView.register(UINib(nibName: "TallContractorCollectionCell", bundle: nil), forCellWithReuseIdentifier: Identifier.categoryCell)
+        self.categoriesCollectionView.register(UINib(nibName: "CategorySection", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.categorySection)
+        self.categoriesCollectionView.register(UINib(nibName: "TitleSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.titleSection)
+        
         //        self.tabBarController?.tabBar.backgroundColor = UIColor.black
-        self.tabBarController?.tabBar.barTintColor = UIColor.black
+//        self.tabBarController?.tabBar.barTintColor = UIColor.black
         //        let layout = UPCarouselFlowLayout()
-        layout.itemSize = CGSize(width: 259, height: 390)
+//        layout.itemSize = CGSize(width: 259, height: 390)
         //        self.categoriesCollectionView.collectionViewLayout = layout
         
         self.fetchCategories()
@@ -111,13 +117,21 @@ class HomeViewController: UIViewController, HomeDisplayLogic
 }
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(cellData.count)
-        return cellData.count
+        if section == 0 {
+            return 0
+        } else {
+            return cellData.count
+        }
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.section == 0 {
+            return UICollectionViewCell()
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell, for: indexPath) as! TallContractorCollectionCell
         let data = cellData[indexPath.row]
         cell.setCell(name: data.tag, count: data.count, img: data.img)
@@ -125,6 +139,19 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
         
     }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if indexPath.section == 0 {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.categorySection, for: indexPath) as! CategorySection
+            header.setCell(data: self.cellData)
+            return header
+        } else {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.titleSection, for: indexPath) as! TitleSectionHeader
+            header.setCell(title: "Top Rated")
+            return header
+        }
+        
+    }
+    
 }
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -132,6 +159,16 @@ extension HomeViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: self.view.frame.width, height: 220)
+        } else {
+            return CGSize(width: self.view.frame.width, height: 45)
+        }
+    }
+}
+
 
 
 
