@@ -17,6 +17,7 @@ protocol ListBusinessesBusinessLogic
     func fetchBusinesses()
     func fetchAll()
     func search(request: ListBusinesses.Search.Request)
+    func fetchCategories()
 }
 
 protocol ListBusinessesDataStore
@@ -51,6 +52,14 @@ class ListBusinessesInteractor: ListBusinessesBusinessLogic, ListBusinessesDataS
             self.businesses = newData
 //            self.presenter?.presentBusinesses(response: ListBusinesses.FetchBusinesses.Response(businesses: self.businesses))
         })
+    }
+    func fetchCategories() {
+        let cats = ["AC and Heating", "Handyman",  "Electrician", "Home Cleaner", "Landscaper", "Locksmith", "Mover", "Painter", "Plumber"]
+        let imgs: [UIImage?] = [UIImage(named: "acrepair"),UIImage(named: "carpenter"),UIImage(named: "eclectrician"),UIImage(named: "cleaners"),UIImage(named: "landscaping"),UIImage(named: ""),UIImage(named: "movers"),UIImage(named: "painter"),UIImage(named: "plumber2"), ]
+
+        let zipped = Array(zip(cats, imgs))
+        
+        self.presenter?.presentCategories(response: ListBusinesses.FetchCategories.Response(categories: zipped))
     }
     func fetchAll() {
         self.fetchBusinesses()

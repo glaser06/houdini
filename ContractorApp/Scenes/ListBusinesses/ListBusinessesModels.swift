@@ -36,6 +36,20 @@ enum ListBusinesses
             var businesses: [String: [DisplayableBusiness]]
         }
     }
+    enum FetchCategories
+    {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var categories: [(String, UIImage?)]
+        }
+        struct ViewModel
+        {
+            var categories: [(String, UIImage?)]
+        }
+    }
     enum FetchAll {
         struct Request
         {

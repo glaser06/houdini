@@ -30,4 +30,24 @@ enum Home
             var data: [(tag: String, count: Int, img: UIImage)]
         }
     }
+    enum FetchBusinesses
+    {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var businesses: [String: [Business]]
+        }
+        struct ViewModel
+        {
+            struct DisplayableBusiness {
+                var name: String
+                var type: String
+                var image: UIImage
+                var reviewCount: Int
+            }
+            var businesses: [String: [DisplayableBusiness]]
+        }
+    }
 }

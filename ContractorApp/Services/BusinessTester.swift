@@ -12,7 +12,7 @@ import UIKit
 class BusinessTester {
     
     
-    static let imgs: [UIImage] = [#imageLiteral(resourceName: "plumber"), #imageLiteral(resourceName: "movers"), #imageLiteral(resourceName: "painter")]
+    static let imgs: [UIImage] = [#imageLiteral(resourceName: "plumber2"), #imageLiteral(resourceName: "movers"), #imageLiteral(resourceName: "painter")]
     func generate() -> [String: [Business]] {
         let categories = ["Plumber", "Mover", "AC Repair"]
         let names = ["Bob's", "Jacobson", "Tom's", "Jack's", "Julia's", "Adam's", "Forbes"]
@@ -33,7 +33,7 @@ class BusinessTester {
     
     func generateForCategories()  -> [String: (UIImage, [Business])] {
         let categories = ["Home Cleaner", "Painter", "Plumber"]
-        let imgs = [#imageLiteral(resourceName: "cleaners"), #imageLiteral(resourceName: "painter2"), #imageLiteral(resourceName: "plumber")]
+        let imgs = [#imageLiteral(resourceName: "cleaners"), #imageLiteral(resourceName: "painter2"), #imageLiteral(resourceName: "plumber2")]
         let names = ["Bob's", "Jacobson", "Tom's", "Jack's", "Julia's", "Adam's", "Forbes"]
         var dict: [String: (UIImage, [Business])] = [:]
         for (index, cate) in categories.enumerated() {

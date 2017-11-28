@@ -17,6 +17,7 @@ protocol ListBusinessesDisplayLogic: class
     func displayBusinesses(viewModel: ListBusinesses.FetchBusinesses.ViewModel)
     func displayAll(viewModel: ListBusinesses.FetchAll.ViewModel)
     func displaySearch(viewModel: ListBusinesses.Search.ViewModel)
+    func displayCategories(vm: ListBusinesses.FetchCategories.ViewModel)
 }
 
 class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
@@ -70,6 +71,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
     
     var businesses: [ListBusinesses.Search.ViewModel.DisplayableBusiness] = []
     var cellData: [String: [(name: String, image: UIImage)]] = [:]
+    var categories: [(String, UIImage?)] = []
     
     var isSearch: Bool = false
     
@@ -78,12 +80,16 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         super.viewDidLoad()
         self.isSearch = false
         self.navigationController?.clearShadow()
-        self.categoryTableView.register(UINib(nibName: "DisplayCategoryTableCell", bundle: nil), forCellReuseIdentifier: "DisplayCategoryCell")
-        self.categoryTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ContractorCell")
+        if let a  = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            a.headerReferenceSize = CGSize(width: 0, height: 50)
+        }
+        categoryCollectionView.register(UINib(nibName: "BusinessCollectionCell", bundle: nil), forCellWithReuseIdentifier: "BusinessCell")
+//        self.categoryCollectionView.register(UINib(nibName: "DisplayCategoryTableCell", bundle: nil), forCellReuseIdentifier: "DisplayCategoryCell")
+//        self.categoryCollectionView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ContractorCell")
         
-        self.categoryTableView.estimatedRowHeight = 120
-        self.categoryTableView.rowHeight = UITableViewAutomaticDimension
-        fetchAll()
+//        self.categoryCollectionView.estimatedRowHeight = 120
+//        self.categoryTableView.rowHeight = UITableViewAutomaticDimension
+        fetchCategories()
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -92,7 +98,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
     
     // MARK: Do something
     
-    @IBOutlet weak var categoryTableView: UITableView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     @IBOutlet weak var searchBar: UITextField!
     
@@ -101,6 +107,9 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
     }
     func fetchAll() {
         self.interactor?.fetchAll()
+    }
+    func fetchCategories () {
+        self.interactor?.fetchCategories()
     }
     func search() {
         let req = ListBusinesses.Search.Request(query: self.searchBar.text!)
@@ -111,17 +120,21 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         self.searchBar.text = viewModel.query
         let results = viewModel.businesses
         self.businesses = results
-        self.categoryTableView.reloadData()
+        self.categoryCollectionView.reloadData()
     }
     
     func displayBusinesses(viewModel: ListBusinesses.FetchBusinesses.ViewModel) {
 //        self.businesses = viewModel.businesses
-        self.categoryTableView.reloadData()
+        self.categoryCollectionView.reloadData()
     }
     func displayAll(viewModel: ListBusinesses.FetchAll.ViewModel) {
         self.isSearch = false
         self.cellData = viewModel.data
-        self.categoryTableView.reloadData()
+        self.categoryCollectionView.reloadData()
+    }
+    func displayCategories(vm: ListBusinesses.FetchCategories.ViewModel) {
+         self.categories = vm.categories
+        self.categoryCollectionView.reloadData()
     }
     
     var selectedCategory: String = ""
@@ -138,66 +151,90 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         }
         
     }
+    @IBAction func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
-extension ListBusinessesViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension ListBusinessesViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isSearch {
-            return businesses.count
-        } else {
-            return cellData.count
-        }
-        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(isSearch)
-        if !isSearch {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCategoryCell") as! DisplayCategoryTableCell
-            
-            
-            if indexPath.row == 0 {
-                let source = self.cellData["History"]!
-                cell.setCell(category: "History", data: source, transition: { (category, index) in
-                    self.selectedIndex = index
-                    self.selectedCategory = "History"
-                    self.searchBar.text = category
-                    self.search()
-                })
-            } else {
-                let source = self.cellData["Favorites"]!
-                cell.setCell(category: "Favorites", data: source, transition: { (category, index) in
-                    self.selectedIndex = index
-                    self.selectedCategory = "Favorites"
-                    self.performSegue(withIdentifier: "ShowBusiness", sender: self)
-                })
-            }
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContractorCell") as! ReviewTableViewCell
-            let biz = self.businesses[indexPath.row]
-            cell.setCell(name: biz.name, img: biz.image, rank: biz.rank)
-            return cell
-        }
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessCell", for: indexPath) as! BusinessCollectionCell
+        let data = categories[indexPath.row]
+        cell.setCell(name: data.0, img: data.1)
+        return cell
+    }
+}
+extension ListBusinessesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let v = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "titleHeader", for: indexPath)
+        return v
     }
     
 }
-extension ListBusinessesViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("asdf")
-        
-        if checkSearch() {
-            self.selectedIndex = indexPath.row
-            self.selectedCategory = "Search"
-            self.performSegue(withIdentifier: "ShowBusiness", sender: self)
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
+//extension ListBusinessesViewController: UITableViewDataSource {
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if isSearch {
+//            return businesses.count
+//        } else {
+//            return cellData.count
+//        }
+//
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        print(isSearch)
+//        if !isSearch {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCategoryCell") as! DisplayCategoryTableCell
+//
+//
+//            if indexPath.row == 0 {
+//                let source = self.cellData["History"]!
+//                cell.setCell(category: "History", data: source, transition: { (category, index) in
+//                    self.selectedIndex = index
+//                    self.selectedCategory = "History"
+//                    self.searchBar.text = category
+//                    self.search()
+//                })
+//            } else {
+//                let source = self.cellData["Favorites"]!
+//                cell.setCell(category: "Favorites", data: source, transition: { (category, index) in
+//                    self.selectedIndex = index
+//                    self.selectedCategory = "Favorites"
+//                    self.performSegue(withIdentifier: "ShowBusiness", sender: self)
+//                })
+//            }
+//
+//            return cell
+//        } else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ContractorCell") as! ReviewTableViewCell
+//            let biz = self.businesses[indexPath.row]
+//            cell.setCell(name: biz.name, img: biz.image, rank: biz.rank)
+//            return cell
+//        }
+//
+//    }
+//
+//}
+//extension ListBusinessesViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("asdf")
+//
+//        if checkSearch() {
+//            self.selectedIndex = indexPath.row
+//            self.selectedCategory = "Search"
+//            self.performSegue(withIdentifier: "ShowBusiness", sender: self)
+//        }
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//}
 extension ListBusinessesViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

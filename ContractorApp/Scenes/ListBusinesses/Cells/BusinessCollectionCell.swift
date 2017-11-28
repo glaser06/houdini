@@ -21,8 +21,8 @@ class BusinessCollectionCell: UICollectionViewCell {
     @IBOutlet weak var typeLabel: UILabel!
 //    @IBOutlet var stars: [UIImageView]!
     
-    func setCell(name: String, img: UIImage) {
-        self.imageView.image = img
+    func setCell(name: String, img: UIImage?) {
+        self.imageView.image = img ?? UIImage()
         self.typeLabel.text = name
 //        self.reviewLabel.text = "\(business.reviewCount)"
         

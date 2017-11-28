@@ -23,7 +23,7 @@ class ListBusinessesWorker
         self.businesses = service.generate()
     }
     func getCategories(completion: @escaping ([(String, UIImage)]) -> Void) {
-        completion([("Landscaping", #imageLiteral(resourceName: "landscaping")), ("Roofing", #imageLiteral(resourceName: "roofing")), ("Plumbing", #imageLiteral(resourceName: "plumber"))])
+        completion([("Landscaping", #imageLiteral(resourceName: "landscaping")), ("Roofing", #imageLiteral(resourceName: "roofing")), ("Plumbing", #imageLiteral(resourceName: "plumber2"))])
     }
     func getRecommendations(completion: @escaping ([Business]) -> Void) {
         completion(self.businesses.first!.value)

@@ -15,24 +15,44 @@ import UIKit
 protocol HomeBusinessLogic
 {
     func fetchCategories()
+    func fetchBusinesses()
 }
 
 protocol HomeDataStore
 {
     //var name: String { get set }
+    var businesses: [String : [Business]]  { get set }
+    
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
     var presenter: HomePresentationLogic?
-    var worker: HomeWorker = HomeWorker()
-    //var name: String = ""
+    var worker: ListBusinessesWorker = ListBusinessesWorker()
+    var businesses: [String : [Business]] = [:]
+    var homeWorker: HomeWorker = HomeWorker()
     
     // MARK: Do something
     func fetchCategories() {
-        worker.fetchCategorie { (data) in
+        homeWorker.fetchCategorie { (data) in
             self.presenter?.presentCategories(response: Home.FetchCategories.Response(data: data))
         }
     }
+    func fetchBusinesses() {
+        self.worker.getBusinesses(completion: { (newData) in
+            self.businesses = newData
+            self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
+        })
+    }
+//    func search(request: ListBusinesses.Search.Request) {
+//        let query = request.query
+//
+//        let r = self.businesses.first!.value
+//        self.results = r
+//        let resp = ListBusinesses.Search.Response(businesses: results, query: query)
+//        self.presenter?.presentSearch(response: resp)
+//
+//    }
+    
     
 }

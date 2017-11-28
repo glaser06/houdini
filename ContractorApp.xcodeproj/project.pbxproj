@@ -23,6 +23,8 @@
 		E341422F1FCD16BA0084F591 /* CategorySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = E341422D1FCD16BA0084F591 /* CategorySection.xib */; };
 		E34142321FCD19D90084F591 /* TitleSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34142301FCD19D90084F591 /* TitleSectionHeader.swift */; };
 		E34142331FCD19D90084F591 /* TitleSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34142311FCD19D90084F591 /* TitleSectionHeader.xib */; };
+		E341423A1FCD69990084F591 /* BusinessHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34142381FCD69990084F591 /* BusinessHomeCell.swift */; };
+		E341423B1FCD69990084F591 /* BusinessHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34142391FCD69990084F591 /* BusinessHomeCell.xib */; };
 		E35AA6211FB2E18A005595B1 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */; };
 		E35AA6221FB2E18A005595B1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61C1FB2E18A005595B1 /* HomeModels.swift */; };
 		E35AA6231FB2E18A005595B1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */; };
@@ -158,6 +160,8 @@
 		E341422D1FCD16BA0084F591 /* CategorySection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySection.xib; sourceTree = "<group>"; };
 		E34142301FCD19D90084F591 /* TitleSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSectionHeader.swift; sourceTree = "<group>"; };
 		E34142311FCD19D90084F591 /* TitleSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleSectionHeader.xib; sourceTree = "<group>"; };
+		E34142381FCD69990084F591 /* BusinessHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeCell.swift; sourceTree = "<group>"; };
+		E34142391FCD69990084F591 /* BusinessHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeCell.xib; sourceTree = "<group>"; };
 		E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E35AA61C1FB2E18A005595B1 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 				E341422D1FCD16BA0084F591 /* CategorySection.xib */,
 				E34142301FCD19D90084F591 /* TitleSectionHeader.swift */,
 				E34142311FCD19D90084F591 /* TitleSectionHeader.xib */,
+				E34142381FCD69990084F591 /* BusinessHomeCell.swift */,
+				E34142391FCD69990084F591 /* BusinessHomeCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -778,6 +784,7 @@
 				E3F9E50D1FB3561900ADEEB0 /* MessageTableViewCell.xib in Resources */,
 				E35F21DB1FA10093006C57E0 /* InboxTableCell.xib in Resources */,
 				E3C11BA91FB32595003F77A4 /* UserReviewTableViewCell.xib in Resources */,
+				E341423B1FCD69990084F591 /* BusinessHomeCell.xib in Resources */,
 				E3872DD31FBCA772009E70FF /* ImageMessageTableViewCell.xib in Resources */,
 				E325B20A1FBC6C5B0023215F /* GoogleService-Info.plist in Resources */,
 				E35F21A61FA0CA9A006C57E0 /* ProjectTableCell.xib in Resources */,
@@ -837,6 +844,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HGPlaceholders/HGPlaceholders.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
@@ -852,6 +860,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HGPlaceholders.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
@@ -1013,6 +1022,7 @@
 				E3AF2A8F1FA0914900683FD0 /* ShowBusinessesWorker.swift in Sources */,
 				E35AA6241FB2E18A005595B1 /* HomeRouter.swift in Sources */,
 				E35F21AD1FA0D4C6006C57E0 /* MessageInteractor.swift in Sources */,
+				E341423A1FCD69990084F591 /* BusinessHomeCell.swift in Sources */,
 				E39E8D0F1F8E2ABC00CF11B6 /* AppDelegate.swift in Sources */,
 				E35AA62A1FB2E1E8005595B1 /* TallContractorCollectionCell.swift in Sources */,
 				E35F21B11FA0D4C6006C57E0 /* MessageViewController.swift in Sources */,

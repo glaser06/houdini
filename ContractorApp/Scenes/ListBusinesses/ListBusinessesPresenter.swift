@@ -20,6 +20,8 @@ protocol ListBusinessesPresentationLogic
     
     func presentSearch(response: ListBusinesses.Search.Response)
     
+    func presentCategories(response: ListBusinesses.FetchCategories.Response)
+    
     
 }
 
@@ -67,5 +69,8 @@ class ListBusinessesPresenter: ListBusinessesPresentationLogic
         }
         let vm = ListBusinesses.Search.ViewModel(businesses: temp, query: response.query)
         self.viewController?.displaySearch(viewModel: vm)
+    }
+    func presentCategories(response: ListBusinesses.FetchCategories.Response) {
+        self.viewController?.displayCategories(vm: ListBusinesses.FetchCategories.ViewModel(categories: response.categories))
     }
 }

@@ -17,7 +17,7 @@ class ProjectTester {
         var projects: [Project] = []
         for name in names{
             let project = Project(name: name, detail: "something", type: "Plumber")
-            let images: [UIImage] = [#imageLiteral(resourceName: "plumber"),#imageLiteral(resourceName: "movers"),#imageLiteral(resourceName: "painter")]
+            let images: [UIImage] = [#imageLiteral(resourceName: "plumber2"),#imageLiteral(resourceName: "movers"),#imageLiteral(resourceName: "painter")]
             project.images = images
             projects.append(project)
             
