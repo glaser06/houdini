@@ -70,12 +70,21 @@ class ShowBusinessesViewController: UIViewController, ShowBusinessesDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         self.reviewsTableView.register(UINib(nibName: "UserReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.reviewsTableView.rowHeight = UITableViewAutomaticDimension
         self.reviewsTableView.estimatedRowHeight = 150
         self.navigationController?.clearShadow()
         self.reviewsTableView.tableFooterView = UIView()
         fetchBusiness()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.navigationBar.barTintColor = 
+//        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: Do something

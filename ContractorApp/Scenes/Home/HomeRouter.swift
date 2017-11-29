@@ -14,7 +14,8 @@ import UIKit
 
 @objc protocol HomeRoutingLogic
 {
-     func routeToListBusinesses()
+    
+    func routeToShowBusiness(segue: UIStoryboardSegue)
 }
 
 protocol HomeDataPassing
@@ -31,13 +32,29 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing
     func routeToListBusinesses() {
         
         
-        var a = (self.viewController?.tabBarController?.viewControllers![1] as! UINavigationController).viewControllers.first! as! ListBusinessesViewController
-        let v = a.view
-        let ind = viewController?.categoriesCollectionView.indexPathsForSelectedItems![0].item
-        let qry = viewController?.cellData[ind!].0
+        //        var a = (self.viewController?.tabBarController?.viewControllers![1] as! UINavigationController).viewControllers.first! as! ListBusinessesViewController
+        //        let v = a.view
+        //        let ind = viewController?.categoriesCollectionView.indexPathsForSelectedItems![0].item
+        //        let qry = viewController?.cellData[ind!].0
         
-        a.interactor?.search(request: ListBusinesses.Search.Request(query: qry!))
-        self.viewController?.tabBarController?.selectedIndex = 1
+        //        a.interactor?.search(request: ListBusinesses.Search.Request(query: qry!))
+        //        self.viewController?.tabBarController?.selectedIndex = 1
+        
+    }
+    func routeToShowBusiness(segue: UIStoryboardSegue) {
+        let destination = segue.destination as! ShowBusinessesViewController
+        var destinationDS = destination.router!.dataStore!
+        passDataToShowBusiness(source: dataStore!, destination: &destinationDS)
+        
+        
+        
+    }
+    func passDataToShowBusiness(source: HomeDataStore, destination: inout ShowBusinessesDataStore) {
+        let index = self.viewController!.categoriesCollectionView.indexPathsForSelectedItems
+        let sections = Array(source.businesses.keys)
+        let section = index!.first!.section
+        let int = index!.first!.item
+        destination.business = source.businesses[sections[section - 1]]![int]
     }
     
     //func routeToSomewhere(segue: UIStoryboardSegue?)

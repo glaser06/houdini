@@ -12,6 +12,7 @@
 
 import UIKit
 
+
 protocol ShowBusinessesPresentationLogic
 {
     func presentBusiness(response: ShowBusinesses.FetchBusiness.Response)
@@ -30,7 +31,7 @@ class ShowBusinessesPresenter: ShowBusinessesPresentationLogic
             reviews.append(review)
         }
         
-        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType, image: response.business.images.first!, reviews: reviews)
+        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType[0].displayName, image: response.business.images.first ?? UIImage(), reviews: reviews)
         self.viewController?.displayBusiness(viewModel: vm)
     }
 }

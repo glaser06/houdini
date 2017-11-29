@@ -68,6 +68,8 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
     func configureDatabase() {
         ref = Database.database().reference()
         // Listen for new messages in the Firebase database
+//        self.ref.chi
+//        self.ref.child(<#T##pathString: String##String#>)
         _refHandle = self.ref.child("messages").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             guard let msg = snapshot.value as? [String: String] else { return }

@@ -11,6 +11,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 protocol ShowBusinessesBusinessLogic
 {
@@ -25,12 +27,31 @@ protocol ShowBusinessesDataStore
 class ShowBusinessesInteractor: ShowBusinessesBusinessLogic, ShowBusinessesDataStore
 {
     var presenter: ShowBusinessesPresentationLogic?
-    var worker: ShowBusinessesWorker?
+    var worker = YelpWorker()
     var business: Business!
     
     // MARK: Do something
     
     func fetchBusiness() {
-        self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+        worker.getBusiness(business: self.business) { (b) in
+            self.business = b
+            let imgURL = self.business.heroImageURL
+            if self.business.images.count == 0 {
+                Alamofire.request(imgURL).responseImage(completionHandler: { (response) in
+                    if let image = response.result.value {
+                        print("whaaa")
+                        self.business.images.append(image)
+                        self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+                    } else {
+                        self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+                    }
+                })
+            } else {
+                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            }
+            
+            
+        }
+        
     }
 }

@@ -20,7 +20,7 @@ class ListBusinessesWorker
     var businesses: [String: [Business]] = [:]
     
     init() {
-        self.businesses = service.generate()
+//        self.businesses = service.generate()
     }
     func getCategories(completion: @escaping ([(String, UIImage)]) -> Void) {
         completion([("Landscaping", #imageLiteral(resourceName: "landscaping")), ("Roofing", #imageLiteral(resourceName: "roofing")), ("Plumbing", #imageLiteral(resourceName: "plumber2"))])
@@ -30,7 +30,7 @@ class ListBusinessesWorker
     }
     
     func getBusinesses(completion: @escaping ([String: [Business]]) -> Void) {
-        self.businesses = service.generate()
+//        self.businesses = service.generate()
         completion(self.businesses)
     }
 }

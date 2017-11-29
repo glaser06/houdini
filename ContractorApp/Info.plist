@@ -30,13 +30,15 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>We take photos and videos to provide you convenience.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We use microphone to record videos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We use your photos for your convenience</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

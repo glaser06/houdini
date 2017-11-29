@@ -13,6 +13,9 @@ target 'ContractorApp' do
     pod 'UPCarouselFlowLayout', '~> 1.1'
     pod 'HGPlaceholders'
     pod 'Hero', :git => 'https://github.com/lkzhao/Hero.git' #fix iOS 11 in UIView+Hero.swift
+    pod 'Alamofire', '~> 4.5'
+    pod 'AlamofireImage', '~> 3.3'
+    pod 'SwiftyJSON'
 
     pod 'Firebase/AdMob'
     pod 'Firebase/Auth'

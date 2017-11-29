@@ -11,19 +11,40 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
+
 
 class HomeWorker
 {
     let service = BusinessTester()
     
-    func fetchCategorie(completion: @escaping ([(String, Int, UIImage)]) -> Void) {
-        let data = self.service.generateForCategories()
-        var temp: [(String, Int, UIImage)] = []
-        for (key, (img, businesses)) in data {
-            let a = (key, businesses.count, img)
-            temp.append(a)
-        }
-        completion(temp)
-        
+//    func fetchCategorie(completion: @escaping ([(String, Int, UIImage)]) -> Void) {
+////        let data = self.service.generateForCategories()
+////        var temp: [(String, Int, UIImage)] = []
+////        for (key, (img, businesses)) in data {
+////            let a = (key, businesses.count, img)
+////            temp.append(a)
+////        }
+//        let cats = ["AC and Heating", "Handyman",  "Electrician", "Home Cleaner", "Landscaper", "Roofing", "Mover", "Painter", "Plumber"]
+//        let imgs: [UIImage?] = [UIImage(named: "acrepair"),UIImage(named: "carpenter"),UIImage(named: "electrician"),UIImage(named: "cleaners"),UIImage(named: "landscaping"),UIImage(named: "roofing"),UIImage(named: "movers"),UIImage(named: "painter"),UIImage(named: "plumber2"), ]
+//        
+//        let zipped = Array(zip(cats, imgs))
+//        completion(temp)
+//
+//    }
+    func fetchImage(imgURL: String, completion: @escaping (UIImage) -> Void) {
+        Alamofire.request(imgURL).responseImage(completionHandler: { (response) in
+            if let image = response.result.value {
+                print("whaaa")
+//                self.business.images.append(image)
+                completion(image)
+//                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            } else {
+                completion(UIImage())
+//                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            }
+        })
     }
+    
 }

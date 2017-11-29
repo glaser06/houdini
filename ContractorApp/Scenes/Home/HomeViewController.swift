@@ -17,7 +17,10 @@ import Hero
 protocol HomeDisplayLogic: class
 {
     func displayCategories(viewModel: Home.FetchCategories.ViewModel)
+    
     func displayBusinesses(viewModel: Home.FetchBusinesses.ViewModel)
+    
+    func updateImage(vm: Home.UpdateImage.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
@@ -89,6 +92,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         super.viewDidLoad()
         self.navigationController?.heroNavigationAnimationType = .fade
 //        self.tabBarController?.tabBar.isHidden = true
+        self.automaticallyAdjustsScrollViewInsets = false
         self.categoriesCollectionView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
         self.categoriesCollectionView.register(UINib(nibName: "TallContractorCollectionCell", bundle: nil), forCellWithReuseIdentifier: Identifier.categoryCell)
         self.categoriesCollectionView.register(UINib(nibName: "CategorySection", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.categorySection)
@@ -99,18 +103,29 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         //        let layout = UPCarouselFlowLayout()
 //        layout.itemSize = CGSize(width: 259, height: 390)
         //        self.categoriesCollectionView.collectionViewLayout = layout
+        self.navigationController?.clearShadow()
+        
         self.categoriesCollectionView.backgroundColor = UIColor.clear
         self.fetchCategories()
         self.fetchBusinesses()
-        
+        self.navigationController?.navigationBar.isHidden = true
         self.searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! ListBusinessesViewController
+        
+        self.categoriesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
     }
     override func viewDidDisappear(_ animated: Bool) {
 
     }
+    override func viewWillDisappear(_ animated: Bool) {
+//        self.navigationController?.navigationBar.barTintColor =
+//        self.navigationController?.navigationBar.layer.zPosition = 0
+    }
     override func viewWillAppear(_ animated: Bool) {
-
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     // MARK: Do something
@@ -122,6 +137,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     
     func fetchCategories() {
         self.interactor?.fetchCategories()
+        self.categoriesCollectionView.reloadSections(IndexSet(integer: 0))
     }
     func fetchBusinesses() {
         self.interactor?.fetchBusinesses()
@@ -144,6 +160,16 @@ class HomeViewController: UIViewController, HomeDisplayLogic
             self.categoriesCollectionView.reloadSections(IndexSet(integersIn: 1...self.businesses.count))
         }
        
+        
+        
+    }
+    func updateImage(vm: Home.UpdateImage.ViewModel) {
+        self.businesses[vm.section]![vm.index].image = vm.image
+        let indexPath: IndexPath = IndexPath(row: vm.index, section: self.categories.index(of: vm.section)! + 1)
+        if self.businesses.count > 0 {
+            self.categoriesCollectionView.reloadItems(at: [indexPath])
+        }
+        
         
         
     }
@@ -177,7 +203,7 @@ extension HomeViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.businessCell, for: indexPath) as! BusinessHomeCell
         let key = self.categories[indexPath.section - 1]
         let data: Home.FetchBusinesses.ViewModel.DisplayableBusiness = self.businesses[key]![indexPath.row]
-        cell.setCell(name: data.name, img: data.image, rank: 0)
+        cell.setCell(name: data.name, img: data.image, category: data.type.uppercased(), reviewCount: "\(data.reviewCount)")
         //        print("here")
         return cell
         
@@ -185,7 +211,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if indexPath.section == 0 {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.categorySection, for: indexPath) as! CategorySection
-            header.setCell(data: self.cellData)
+            header.setCell(data: [])
             return header
         } else {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.titleSection, for: indexPath) as! TitleSectionHeader
@@ -198,14 +224,15 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.router?.routeToListBusinesses()
+//        self.router?.routeToListBusinesses()
+        self.performSegue(withIdentifier: "ShowBusiness", sender: self)
         collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: self.view.frame.width, height: 220)
+            return CGSize(width: self.view.frame.width, height: 328)
         } else {
             return CGSize(width: self.view.frame.width, height: 45)
         }

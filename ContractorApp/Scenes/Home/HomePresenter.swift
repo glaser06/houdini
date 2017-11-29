@@ -16,6 +16,7 @@ protocol HomePresentationLogic
 {
     func presentCategories(response: Home.FetchCategories.Response)
     func presentBusinesses(response: Home.FetchBusinesses.Response)
+    func updateImage(response: Home.UpdateImage.Response)
 }
 
 class HomePresenter: HomePresentationLogic
@@ -27,6 +28,13 @@ class HomePresenter: HomePresentationLogic
     func presentCategories(response: Home.FetchCategories.Response) {
         self.viewController?.displayCategories(viewModel: Home.FetchCategories.ViewModel(data: response.data))
     }
+    func updateImage(response: Home.UpdateImage.Response) {
+        DispatchQueue.main.async {
+            self.viewController?.updateImage(vm: Home.UpdateImage.ViewModel(image: response.image, section: response.section, index: response.index))
+        }
+        
+        
+    }
     func presentBusinesses(response: Home.FetchBusinesses.Response) {
         var passingOn: [String: [Home.FetchBusinesses.ViewModel.DisplayableBusiness]] = [:]
         for each in response.businesses {
@@ -34,7 +42,7 @@ class HomePresenter: HomePresentationLogic
             var anotherList: [Home.FetchBusinesses.ViewModel.DisplayableBusiness] = []
             for business in each.value {
                 let image: UIImage = business.images.count > 0 ? business.images[0] : UIImage()
-                let displayed = Home.FetchBusinesses.ViewModel.DisplayableBusiness(name: business.name, type: business.businessType, image: image, reviewCount: 30)
+                let displayed = Home.FetchBusinesses.ViewModel.DisplayableBusiness(name: business.name, type: business.businessType[0].displayName,image: image, reviewCount: 30)
                 anotherList.append(displayed)
             }
             passingOn[category] = anotherList

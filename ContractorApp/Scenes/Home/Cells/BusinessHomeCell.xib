@@ -134,6 +134,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="139" height="205"/>
             <connections>
+                <outlet property="categoryLabel" destination="csA-S5-5Oj" id="zKO-ro-zVh"/>
+                <outlet property="countLabel" destination="d1c-q7-PLH" id="fCt-fT-4Ch"/>
                 <outlet property="img" destination="1cq-Ei-EsO" id="MIk-Z9-KaW"/>
                 <outlet property="nameLabel" destination="UVr-sS-GZl" id="gbv-rg-n3d"/>
             </connections>

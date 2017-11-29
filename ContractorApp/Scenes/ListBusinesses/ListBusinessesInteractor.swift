@@ -54,8 +54,8 @@ class ListBusinessesInteractor: ListBusinessesBusinessLogic, ListBusinessesDataS
         })
     }
     func fetchCategories() {
-        let cats = ["AC and Heating", "Handyman",  "Electrician", "Home Cleaner", "Landscaper", "Locksmith", "Mover", "Painter", "Plumber"]
-        let imgs: [UIImage?] = [UIImage(named: "acrepair"),UIImage(named: "carpenter"),UIImage(named: "eclectrician"),UIImage(named: "cleaners"),UIImage(named: "landscaping"),UIImage(named: ""),UIImage(named: "movers"),UIImage(named: "painter"),UIImage(named: "plumber2"), ]
+        let cats = ["AC and Heating", "Handyman",  "Electrician", "Home Cleaner", "Landscaper", "Roofing", "Mover", "Painter", "Plumber"]
+        let imgs: [UIImage?] = [UIImage(named: "acrepair"),UIImage(named: "carpenter"),UIImage(named: "electrician"),UIImage(named: "cleaners"),UIImage(named: "landscaping"),UIImage(named: "roofing"),UIImage(named: "movers"),UIImage(named: "painter"),UIImage(named: "plumber2"), ]
 
         let zipped = Array(zip(cats, imgs))
         

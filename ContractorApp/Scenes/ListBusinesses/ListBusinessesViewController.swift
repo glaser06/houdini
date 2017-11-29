@@ -78,6 +78,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.isSearch = false
         self.navigationController?.clearShadow()
         if let a  = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -92,7 +93,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         fetchCategories()
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationController?.navigationBar.isHidden = true
         
     }
     
