@@ -23,13 +23,13 @@ class InboxTableCell: UITableViewCell {
     
     @IBOutlet weak var businessNameLabel: UILabel!
 //    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var typeNameLabel: UILabel!
+//    @IBOutlet weak var typeNameLabel: UILabel!
     @IBOutlet weak var alertIndicator: UIView!
     
     func setCell(convo: ShowInbox.FetchInbox.ViewModel.DisplayableConversation) {
         self.businessNameLabel.text = convo.businessName
 //        self.projectNameLabel.text = convo.projectName
-        self.typeNameLabel.text = convo.jobType
+//        self.typeNameLabel.text = convo.businessName
         self.alertIndicator.isHidden = true
     }
     

@@ -14,7 +14,7 @@ import UIKit
 
 class ShowInboxWorker
 {
-  func doSomeWork()
-  {
-  }
+    func fetchConversations () {
+        
+    }
 }

@@ -70,6 +70,8 @@ class SignInViewController: UIViewController, SignInDisplayLogic, GIDSignInUIDel
     @IBOutlet weak var signInButton: GIDSignInButton!
     var handle: AuthStateDidChangeListenerHandle?
     
+    var ref: DatabaseReference!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -77,14 +79,44 @@ class SignInViewController: UIViewController, SignInDisplayLogic, GIDSignInUIDel
         GIDSignIn.sharedInstance().signInSilently()
 //        GIDSignIn.sharedInstance().hasAuthInKeychain()
 //        GIDSignIn.sharedInstance().behav
+        self.configureDatabase()
         handle = Auth.auth().addStateDidChangeListener() { (auth, u) in
             if u != nil {
+                self.ref.child("users").child(u!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//                    if snapshot.value == nil {
+//                        print("no snapshot")
+//                        self.ref.child("users").child(u!.uid).setValue([
+//
+//                            "username": u!.displayName,
+//                            "id": u!.uid,
+//                            "registered_at": Date().timeIntervalSince1970
+//                            ])
+//                    }
+                    let userData = snapshot.value as? NSDictionary
+                    let registration = userData?["registered_at"] as? Double
+                    if registration == nil {
+                        print("no registration aaaaaaaaaaaaaaaaaa \n\n\n\n\n")
+                        self.ref.child("users").child(u!.uid).updateChildValues(["registered_at": Date().timeIntervalSince1970])
+//                            .setValue([
+//                            "username": u!.displayName,
+//                            "id": u!.uid,
+//                            "registered_at": Date().timeIntervalSince1970
+//                            ])
+                    }
+                    self.performSegue(withIdentifier: "Home", sender: self)
+                })
                 
-                self.performSegue(withIdentifier: "Home", sender: self)
+//                self.ref.child("users").child(u!.uid).setValue(<#T##value: Any?##Any?#>)
+//                if
+                
             }else {
                 print(u)
             }
         }
+    }
+    func configureDatabase() {
+        self.ref = Database.database().reference()
+        
     }
     deinit {
         if let handle = handle {

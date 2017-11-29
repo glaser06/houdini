@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol AddProjectBusinessLogic
 {
@@ -55,6 +56,28 @@ class AddProjectInteractor: AddProjectBusinessLogic, AddProjectDataStore
         project.images = ProjectWorker.sharedInstance.images
         
         ProjectWorker.sharedInstance.projects.append(project)
-        MessengerWorker.sharedInstance.conversations.append(Conversation(busi: business, proj: project))
+        
+//        MessengerWorker.sharedInstance.conversations.append(Conversation(busi: business, proj: project))
+        
+//        sending firebase to create conversation
+        var mdata: [String: Any] = [
+            "contractorID": "contractor1",
+            "contractorName": self.business.name,
+            "updatedAt": Date().timeIntervalSince1970,
+            "userID": Auth.auth().currentUser!.uid,
+            "yelpID": self.business.id,
+        ]
+//        mdata["name"] = Auth.auth().currentUser?.displayName ?? ""
+//        if let photoURL = Auth.auth().currentUser?.photoURL {
+//            mdata["photoURL"] = photoURL.absoluteString
+//        }
+        
+        // Push data to Firebase Database
+        let user = Auth.auth().currentUser!
+        var ref = Database.database().reference()
+        var convoRef = ref.child("conversation-data").childByAutoId()
+        let key = convoRef.key
+        convoRef.setValue(mdata)
+        ref.child("users").child(user.uid).child("conversations").child(key).setValue(mdata)
     }
 }

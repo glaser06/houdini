@@ -24,11 +24,12 @@ class MessagePresenter: MessagePresentationLogic
     // MARK: Do something
     
     func presentMessages(response: Message.FetchMessages.Response) {
-        let msgs = response.messages.filter { (m) -> Bool in
-            m.sender == "contractor" || m.sender == response.userName
-            
-            
-        }
+        let msgs = response.messages
+//        let msgs = response.messages.filter { (m) -> Bool in
+//            m.sender == "contractor" || m.sender == response.
+//
+//
+//        }
         self.viewController?.displayMessages(vm: Message.FetchMessages.ViewModel(userName: response.userName, businessName: response.businessName, messages: msgs))
     }
 }

@@ -39,6 +39,12 @@ enum Message
         var sender: String
         var image: UIImage?
     }
+    struct QuoteMessage: GenericMessage {
+        var message: String
+        var sender: String
+        var quotePrice: Double
+        var quoteDescription: String = ""
+    }
     // MARK: Use cases
     
     enum FetchMessages
@@ -57,6 +63,18 @@ enum Message
             var userName: String
             var businessName: String
             var messages: [GenericMessage]
+        }
+    }
+    enum SendQuote {
+        struct Request
+        {
+            var message: Message
+        }
+        struct Response
+        {
+        }
+        struct ViewModel
+        {
         }
     }
     enum SendMessage

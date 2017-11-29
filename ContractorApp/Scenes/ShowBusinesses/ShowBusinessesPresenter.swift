@@ -31,7 +31,7 @@ class ShowBusinessesPresenter: ShowBusinessesPresentationLogic
             reviews.append(review)
         }
         
-        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType[0].displayName, image: response.business.images.first ?? UIImage(), reviews: reviews)
+        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType[0].displayName, image: response.business.images.first ?? #imageLiteral(resourceName: "placeholder"), reviews: reviews)
         self.viewController?.displayBusiness(viewModel: vm)
     }
 }

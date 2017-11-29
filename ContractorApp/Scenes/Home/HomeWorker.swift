@@ -41,7 +41,7 @@ class HomeWorker
                 completion(image)
 //                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
             } else {
-                completion(UIImage())
+                completion(#imageLiteral(resourceName: "placeholder"))
 //                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
             }
         })

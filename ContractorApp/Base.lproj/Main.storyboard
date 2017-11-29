@@ -641,7 +641,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                     <constraint firstAttribute="height" constant="40" id="DWM-qS-wmf"/>
                                     <constraint firstAttribute="width" constant="207" id="rYh-PC-4Yf"/>
                                 </constraints>
-                                <state key="normal" title="Send Quote Request">
+                                <state key="normal" title="Add Photos">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -733,10 +733,27 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                     <outlet property="delegate" destination="Ht4-W5-Yad" id="bxb-H5-adT"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-eR-tug">
+                                <rect key="frame" x="303" y="38" width="52" height="26"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MUl-HO-wjz" firstAttribute="centerX" secondItem="f7V-lL-Vo5" secondAttribute="centerX" id="15Q-bH-t0g"/>
+                            <constraint firstItem="yRo-pO-3fP" firstAttribute="trailing" secondItem="7I8-eR-tug" secondAttribute="trailing" constant="20" id="9BK-5a-5y5"/>
                             <constraint firstItem="RCO-DG-le8" firstAttribute="leading" secondItem="yRo-pO-3fP" secondAttribute="leading" constant="20" id="Am4-BT-ENd"/>
                             <constraint firstItem="RCO-DG-le8" firstAttribute="top" secondItem="RdW-0I-Rtt" secondAttribute="bottom" constant="24" id="BK9-WD-yKQ"/>
                             <constraint firstItem="pXf-R6-jcJ" firstAttribute="top" secondItem="9vf-p5-6Jn" secondAttribute="bottom" constant="24" id="EhA-sg-yA2"/>
@@ -753,6 +770,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                             <constraint firstItem="MUl-HO-wjz" firstAttribute="top" secondItem="pXf-R6-jcJ" secondAttribute="bottom" constant="10" id="eD4-cl-m5M"/>
                             <constraint firstItem="RdW-0I-Rtt" firstAttribute="top" secondItem="yRo-pO-3fP" secondAttribute="top" constant="20" id="kBq-Na-JKY"/>
                             <constraint firstItem="9vf-p5-6Jn" firstAttribute="leading" secondItem="RCO-DG-le8" secondAttribute="leading" id="rN2-24-eqC"/>
+                            <constraint firstItem="7I8-eR-tug" firstAttribute="centerY" secondItem="RdW-0I-Rtt" secondAttribute="centerY" id="rSC-o2-yUr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yRo-pO-3fP"/>
                     </view>
@@ -768,7 +786,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnj-at-1P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463" y="747"/>
+            <point key="canvasLocation" x="3461.5999999999999" y="746.17691154422789"/>
         </scene>
         <!--Show Inbox View Controller-->
         <scene sceneID="qAk-MG-wJY">
@@ -812,7 +830,9 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="6Cf-Xl-QNV" firstAttribute="centerY" secondItem="71c-Sy-Tzk" secondAttribute="centerY" id="Qvq-vn-9Y3"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Cf-Xl-QNV" secondAttribute="trailing" constant="8" id="Tsr-hg-ghO"/>
                                 <constraint firstItem="6Cf-Xl-QNV" firstAttribute="centerX" secondItem="71c-Sy-Tzk" secondAttribute="centerX" id="fE3-Pe-Vqs"/>
+                                <constraint firstItem="6Cf-Xl-QNV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="71c-Sy-Tzk" secondAttribute="leading" constant="8" id="lGE-20-Je6"/>
                             </constraints>
                         </view>
                     </navigationItem>
@@ -886,6 +906,8 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                             <constraints>
                                 <constraint firstItem="Tlp-vV-Whx" firstAttribute="centerY" secondItem="WmV-vh-wvv" secondAttribute="centerY" id="AhG-6g-hk4"/>
                                 <constraint firstItem="Tlp-vV-Whx" firstAttribute="centerX" secondItem="WmV-vh-wvv" secondAttribute="centerX" id="FkS-Lq-hBb"/>
+                                <constraint firstItem="Tlp-vV-Whx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WmV-vh-wvv" secondAttribute="leading" constant="20" id="HIX-27-5n6"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tlp-vV-Whx" secondAttribute="trailing" constant="20" id="pAi-ZX-5cG"/>
                             </constraints>
                         </view>
                     </navigationItem>
@@ -951,7 +973,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhe-CZ-qav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2530" y="1468"/>
+            <point key="canvasLocation" x="2649" y="1535"/>
         </scene>
         <!--Show Profile View Controller-->
         <scene sceneID="cob-28-xdY">
@@ -1360,6 +1382,9 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BHK-rZ-oHB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <userDefinedRuntimeAttributes>

@@ -14,12 +14,19 @@ import UIKit
 
 class Conversation {
     
-    var business: Business
-    var project: Project
+//    var business: Business
+//    var project: Project
+    var name: String
+    var yelpID: String
+    var image: UIImage?
+    var conversationID: String
     
-    init(busi: Business, proj: Project) {
-        self.business = busi
-        self.project = proj
+    init(name: String, convoID: String, yelpID: String, _ img: UIImage? = nil) {
+        self.name = name
+        
+        self.yelpID = yelpID
+        self.conversationID = convoID
+//        self.project = proj
     }
     
 }

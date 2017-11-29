@@ -22,7 +22,7 @@ class BusinessCollectionCell: UICollectionViewCell {
 //    @IBOutlet var stars: [UIImageView]!
     
     func setCell(name: String, img: UIImage?) {
-        self.imageView.image = img ?? UIImage()
+        self.imageView.image = img ?? #imageLiteral(resourceName: "placeholder")
         self.typeLabel.text = name
 //        self.reviewLabel.text = "\(business.reviewCount)"
         

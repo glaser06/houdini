@@ -118,6 +118,32 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     func sendMessage() {
         self.interactor?.sendMessage(request: Message.SendMessage.Request(message: Message.Message(message: self.textView.text!, sender: self.name)))
     }
+    func sendQuote() {
+        let alertController = UIAlertController(title: "Price Quote", message: "", preferredStyle: .alert)
+        let sendAction = UIAlertAction(title: "Send", style: .default, handler: {
+            alert -> Void in
+            
+            let firstTextField = alertController.textFields![0] as UITextField
+//            let secondTextField = alertController.textFields![1] as UITextField
+            
+//            print("firstName \(firstTextField.text), secondName \(secondTextField.text)")
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (action : UIAlertAction!) -> Void in
+            
+        })
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter an amount"
+        }
+//        alertController.addTextField { (textField : UITextField!) -> Void in
+//            textField.placeholder = "Enter Second Name"
+//        }
+        
+        alertController.addAction(sendAction)
+        alertController.addAction(cancelAction)
+    }
     func displayMessages(vm: Message.FetchMessages.ViewModel) {
         self.messages = vm.messages
         self.titleLabel.text = vm.businessName
@@ -128,6 +154,9 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
             self.showCamera()
+        }
+        let quote = UIAlertAction(title: "Quote", style: .default) { (action) in
+            self.sendQuote()
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         sheet.addAction(camera)
@@ -164,7 +193,7 @@ extension MessageViewController {
         let message = self.messages[indexPath.row]
         
         var cell: UITableViewCell
-        if message.sender == Auth.auth().currentUser!.displayName {
+        if message.sender == Auth.auth().currentUser!.uid {
             if let m = message as? Message.ImageMessage {
                 var a = tableView.dequeueReusableCell(withIdentifier: ImageMessageTableViewCell.identifier) as! ImageMessageTableViewCell
                 a.setCell(img: m.image!)
@@ -199,6 +228,7 @@ extension MessageViewController {
     // MARK: Overwrite methods
     override func didPressLeftButton(_ sender: Any?) {
         super.didPressLeftButton(sender)
+        
         self.showCamera()
     }
     override func didPressRightButton(_ sender: Any?) {

@@ -80,7 +80,7 @@ class ShowInboxViewController: UIViewController, ShowInboxDisplayLogic
         self.inboxTableView.tableFooterView = UIView()
         self.inboxTableView.showLoadingPlaceholder()
         
-        
+        interactor?.configureDatabase()
         fetchInbox()
     }
     override func viewWillAppear(_ animated: Bool) {

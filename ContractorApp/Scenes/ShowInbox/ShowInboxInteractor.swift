@@ -11,10 +11,14 @@
 //
 
 import UIKit
+import Firebase
+import Photos
+
 
 protocol ShowInboxBusinessLogic
 {
     func fetchInbox()
+    func configureDatabase()
 }
 
 protocol ShowInboxDataStore
@@ -26,17 +30,65 @@ protocol ShowInboxDataStore
 class ShowInboxInteractor: ShowInboxBusinessLogic, ShowInboxDataStore
 {
     var presenter: ShowInboxPresentationLogic?
-    var worker: ShowInboxWorker?
+    var worker: ShowInboxWorker = ShowInboxWorker()
     var conversations: [Conversation]!
-    //var name: String = ""
+    
+    var ref: DatabaseReference!
+    var storageRef: StorageReference!
+    fileprivate var _refHandle: DatabaseHandle!
     
     // MARK: Do something
     
     func fetchInbox() {
-        self.conversations =  MessengerWorker.sharedInstance.conversations
+//        self.conversations =  self.conversations
         let resp = ShowInbox.FetchInbox.Response(conversations: conversations)
         self.presenter?.presentInbox(response: resp)
     }
-    
+    deinit {
+        if let refHandle = _refHandle {
+            let user = Auth.auth().currentUser!
+            self.ref.child("users").child(user.uid).child("conversations").removeObserver(withHandle: _refHandle)
+        }
+    }
+    func configureDatabase() {
+        self.conversations = []
+        ref = Database.database().reference()
+        if let user = Auth.auth().currentUser {
+            var userRef = self.ref.child("users").child(user.uid)
+            self._refHandle = userRef.child("conversations").observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
+                
+                guard let strongSelf = self else { return }
+                let data = snapshot.value as? NSDictionary
+                
+                let name = data?["contractorName"] as? String
+                let yelpID = data?["yelpID"] as? String
+                let convo = Conversation(name: name!, convoID: snapshot.key, yelpID: yelpID!)
+                strongSelf.conversations.append(convo)
+                strongSelf.presenter?.presentInbox(response: ShowInbox.FetchInbox.Response(conversations: strongSelf.conversations))
+                
+            })
+//            userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//                let userData = snapshot.value as? NSDictionary
+//                let convos = userData?["conversations"] as? String
+//                if convos == nil {
+//                    print("no conversations")
+////                    userRef.setValue(["conversations"])
+//                } else {
+//
+//                }
+//            })
+            
+//            let registration = userData?["registered_at"] as? Int
+//            if registration == nil {
+//                print("no registration")
+//                self.ref.child("users").child(u!.uid).setValue([
+//                    "username": u!.displayName,
+//                    "id": u!.uid,
+//                    "registered_at": Date().timeIntervalSince1970
+//                    ])
+            
+        }
+        
+    }
     
 }

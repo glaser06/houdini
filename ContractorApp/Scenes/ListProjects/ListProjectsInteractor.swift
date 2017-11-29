@@ -39,7 +39,7 @@ class ListProjectsInteractor: ListProjectsBusinessLogic, ListProjectsDataStore
         presenter?.presentProjects(response: ListProjects.FetchProjects.Response(projects: ProjectWorker.sharedInstance.projects, doSelect: doSelect)) 
     }
     func addConversation(index: Int) {
-        MessengerWorker.sharedInstance.conversations.append(Conversation(busi: ListBusinessesWorker.shared.businesses.first!.value.first!, proj: projects[index]))
+//        MessengerWorker.sharedInstance.conversations.append(Conversation(busi: ListBusinessesWorker.shared.businesses.first!.value.first!, proj: projects[index]))
     }
     
 }

@@ -36,7 +36,6 @@
                         <constraints>
                             <constraint firstItem="iac-6w-vNi" firstAttribute="leading" secondItem="QHX-Q2-nqr" secondAttribute="leadingMargin" id="7eI-gZ-bXj"/>
                             <constraint firstItem="iac-6w-vNi" firstAttribute="top" secondItem="QHX-Q2-nqr" secondAttribute="topMargin" id="E9Z-gT-OIT"/>
-                            <constraint firstItem="iac-6w-vNi" firstAttribute="trailing" secondItem="QHX-Q2-nqr" secondAttribute="trailingMargin" id="eCK-rt-j9n"/>
                             <constraint firstItem="iac-6w-vNi" firstAttribute="bottom" secondItem="QHX-Q2-nqr" secondAttribute="bottomMargin" id="lHT-d3-ade"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

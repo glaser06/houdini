@@ -29,8 +29,9 @@ enum ShowInbox
     {
         struct DisplayableConversation {
             var businessName: String
-            var projectName: String
-            var jobType: String
+            var message: String
+            var time: String 
+            
         }
         var conversations: [DisplayableConversation]
     }

@@ -67,8 +67,8 @@ class YelpAPI {
             Alamofire.request(reqURL, method: .get, parameters: p, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
                 if let val = response.result.value {
                     let json = JSON(val)
-                    print(json)
-                    print(response.request)
+//                    print(json)
+//                    print(response.request)
                     completion(json)
                 }
             }
@@ -76,7 +76,7 @@ class YelpAPI {
             Alamofire.request(reqURL, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
                 if let val = response.result.value {
                     let json = JSON(val)
-                    print(json)
+//                    print(json)
                     completion(json)
                 }
             }

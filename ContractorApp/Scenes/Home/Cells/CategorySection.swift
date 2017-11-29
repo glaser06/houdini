@@ -43,7 +43,7 @@ extension CategorySection: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! TallContractorCollectionCell
         let data = cellData[indexPath.row % cellData.count]
-        cell.setCell(name: data.0, count: data.1.0, img: data.1.1 ?? UIImage())
+        cell.setCell(name: data.0, count: data.1.0, img: data.1.1 ?? UIImage(named: "placeholder")!)
         //        print("here")
         return cell
     }
