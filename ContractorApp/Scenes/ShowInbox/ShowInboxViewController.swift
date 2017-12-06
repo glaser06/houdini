@@ -131,6 +131,7 @@ extension ShowInboxViewController: UITableViewDataSource {
         let data = self.conversations[row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "InboxCell") as! InboxTableCell
         cell.setCell(convo: data)
+        
         return cell
     }
 }

@@ -94,6 +94,8 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         self.tableView?.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: MessageCellIdentifier + "1")
         self.tableView?.register(UINib(nibName: "ReceiverMessageCell", bundle: nil), forCellReuseIdentifier: MessageCellIdentifier + "2")
         self.tableView?.register(UINib(nibName: ImageMessageTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ImageMessageTableViewCell.identifier)
+        self.tableView?.register(UINib(nibName: "QuoteMessageTableCell", bundle: nil), forCellReuseIdentifier: QuoteCellIdentifier)
+        self.tableView?.register(UINib(nibName: "ScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: ScheduleCellIdentifier)
         self.tableView?.rowHeight = UITableViewAutomaticDimension
         self.tableView?.estimatedRowHeight = 200
         self.tableView?.separatorStyle = .none
@@ -118,12 +120,18 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     func sendMessage() {
         self.interactor?.sendMessage(request: Message.SendMessage.Request(message: Message.Message(message: self.textView.text!, sender: self.name)))
     }
+    func sendSchedule() {
+        self.interactor?.sendSchedule(request: Message.SendSchedule.Request(message: Message.ScheduleMessage(message: "", sender: "", availabilities: [])))
+    }
     func sendQuote() {
         let alertController = UIAlertController(title: "Price Quote", message: "", preferredStyle: .alert)
         let sendAction = UIAlertAction(title: "Send", style: .default, handler: {
             alert -> Void in
             
             let firstTextField = alertController.textFields![0] as UITextField
+            firstTextField.resignFirstResponder()
+            self.view.endEditing(true)
+            self.interactor?.sendQuote(request: Message.SendQuote.Request(message: Message.QuoteMessage(message: "", sender: "", quotePrice: Double(firstTextField.text!)!, quoteDescription: "", messageID: "")))
 //            let secondTextField = alertController.textFields![1] as UITextField
             
 //            print("firstName \(firstTextField.text), secondName \(secondTextField.text)")
@@ -131,7 +139,9 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (action : UIAlertAction!) -> Void in
-            
+            let firstTextField = alertController.textFields![0] as UITextField
+            firstTextField.resignFirstResponder()
+            self.view.endEditing(true)
         })
         
         alertController.addTextField { (textField : UITextField!) -> Void in
@@ -143,6 +153,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         
         alertController.addAction(sendAction)
         alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     func displayMessages(vm: Message.FetchMessages.ViewModel) {
         self.messages = vm.messages
@@ -160,6 +171,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         sheet.addAction(camera)
+        sheet.addAction(quote)
         sheet.addAction(cancel)
         self.navigationController?.present(sheet, animated: true, completion: nil)
         
@@ -174,6 +186,16 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         }
         
         self.present(picker, animated: true, completion:nil)
+    }
+    func quoteDecision(for id: String, decision: Bool) {
+        
+        if decision {
+            print("accepted")
+            
+        }
+        else {
+            print("declined")
+        }
     }
     
     // MARK: Firebase stuff
@@ -199,6 +221,12 @@ extension MessageViewController {
                 a.setCell(img: m.image!)
                 cell = a
                 
+            } else if let m = message as? Message.QuoteMessage {
+                var a = tableView.dequeueReusableCell(withIdentifier: QuoteCellIdentifier) as! QuoteMessageTableCell
+                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, decision: { (decision) in
+                    self.quoteDecision(for: m.messageID, decision: decision)
+                })
+                cell = a
             } else {
                 var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"1") as! MessageTableViewCell
                 a.setCell(message: message.message)
@@ -206,9 +234,23 @@ extension MessageViewController {
             }
             
         } else {
-            var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"2") as! MessageTableViewCell
-            a.setCell(message: message.message)
-            cell = a
+            if let m = message as? Message.QuoteMessage {
+                var a = tableView.dequeueReusableCell(withIdentifier: QuoteCellIdentifier) as! QuoteMessageTableCell
+                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, decision: { (decision) in
+                    self.quoteDecision(for: m.messageID, decision: decision)
+                })
+                cell = a
+            } else if let m = message as? Message.ScheduleMessage {
+                var a = tableView.dequeueReusableCell(withIdentifier: ScheduleCellIdentifier) as! ScheduleTableViewCell
+                cell = a
+            } else {
+                var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"2") as! MessageTableViewCell
+                a.setCell(message: message.message)
+                cell = a
+            }
+//            var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"2") as! MessageTableViewCell
+//            a.setCell(message: message.message)
+//            cell = a
         }
         
         
@@ -229,7 +271,7 @@ extension MessageViewController {
     override func didPressLeftButton(_ sender: Any?) {
         super.didPressLeftButton(sender)
         
-        self.showCamera()
+        self.addActionSheet()
     }
     override func didPressRightButton(_ sender: Any?) {
         self.textView.refreshFirstResponder()

@@ -35,6 +35,7 @@ class ListBusinessesInteractor: ListBusinessesBusinessLogic, ListBusinessesDataS
 {
     var presenter: ListBusinessesPresentationLogic?
     var worker: ListBusinessesWorker = ListBusinessesWorker()
+    var yelpWorker: YelpWorker = YelpWorker()
     //var name: String = ""
     var businesses: [String : [Business]] = [:]
     var categories: [String]!
@@ -76,11 +77,28 @@ class ListBusinessesInteractor: ListBusinessesBusinessLogic, ListBusinessesDataS
     }
     func search(request: ListBusinesses.Search.Request) {
         let query = request.query
+        self.yelpWorker.search(params: YelpAPI.SearchParam(term: query, location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: -1, sort_by: "best_match", categories: "homeservices")) { (results) in
+            
+//            self.businesses["Nearby"] = results
+            self.results = results
+            let resp = ListBusinesses.Search.Response(businesses: results, query: query)
+            self.presenter?.presentSearch(response: resp)
+//            self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
+//            for (index, each) in results.enumerated() {
+//                self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
+//                    self.businesses["Nearby"]![index].images.append(image)
+//                    self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Nearby", index: index))
+//                })
+                
+//            }
+            
+            
+        }
+//        yelpWorker.search(params: <#T##YelpAPI.SearchParam#>, completion: <#T##([Business]) -> Void#>)
         
-        let r = self.businesses.first!.value
-        self.results = r
-        let resp = ListBusinesses.Search.Response(businesses: results, query: query)
-        self.presenter?.presentSearch(response: resp)
+//        let r = self.businesses.first!.value
+//        self.results = r
+        
         
     }
 }

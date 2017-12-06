@@ -49,7 +49,7 @@ class YelpWorker
     }
     func search(params: YelpAPI.SearchParam, completion: @escaping ([Business]) -> Void) {
         
-        YelpAPI.search(params: params) { (json) in
+        YelpAPI.search(searchParams: params) { (json) in
             let businesses = json["businesses"].arrayValue
             var processed: [Business] = []
             for b in businesses {

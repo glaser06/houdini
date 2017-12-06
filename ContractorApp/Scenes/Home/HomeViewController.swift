@@ -154,10 +154,13 @@ class HomeViewController: UIViewController, HomeDisplayLogic
             self.categories = Array(self.businesses.keys)
             self.categoriesCollectionView.reloadData()
         } else {
+            let currentKeys = Array(self.businesses.keys)
             self.businesses = viewModel.businesses
-            
             self.categories = Array(self.businesses.keys)
-            self.categoriesCollectionView.reloadSections(IndexSet(integersIn: 1...self.businesses.count))
+            self.categoriesCollectionView.reloadData()
+            
+            
+//            self.categoriesCollectionView.reloadSections(IndexSet(integersIn: 1...self.businesses.count))
         }
        
         

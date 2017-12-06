@@ -44,6 +44,18 @@ enum Message
         var sender: String
         var quotePrice: Double
         var quoteDescription: String = ""
+        var messageID: String
+    }
+    struct ScheduleMessage: GenericMessage {
+        var message: String
+        var sender: String
+        
+        struct Appointment {
+            var datetime: Date
+            var duration: Double
+        }
+        var availabilities: [Appointment]
+        
     }
     // MARK: Use cases
     
@@ -68,7 +80,19 @@ enum Message
     enum SendQuote {
         struct Request
         {
-            var message: Message
+            var message: QuoteMessage
+        }
+        struct Response
+        {
+        }
+        struct ViewModel
+        {
+        }
+    }
+    enum SendSchedule {
+        struct Request
+        {
+            var message: ScheduleMessage
         }
         struct Response
         {

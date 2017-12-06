@@ -38,7 +38,7 @@
                         <color key="textColor" red="0.36078431372549019" green="0.41176470588235292" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="person2" translatesAutoresizingMaskIntoConstraints="NO" id="w0I-bZ-ApD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="w0I-bZ-ApD">
                         <rect key="frame" x="24" y="16" width="42" height="42"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="w0I-bZ-ApD" secondAttribute="height" multiplier="1:1" id="5bJ-dG-qOY"/>
@@ -89,6 +89,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="person2" width="128" height="128"/>
+        <image name="placeholder" width="300" height="300"/>
     </resources>
 </document>

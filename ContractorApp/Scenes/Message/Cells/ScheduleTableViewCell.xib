@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="372" id="KGk-i7-Jjw" customClass="ScheduleTableViewCell" customModule="ContractorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="371.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypb-HT-ILp">
+                        <rect key="frame" x="20" y="11" width="284" height="343"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-filled" translatesAutoresizingMaskIntoConstraints="NO" id="UhC-aw-lUm">
+                                <rect key="frame" x="16" y="16" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="8ze-Bw-iDV"/>
+                                    <constraint firstAttribute="width" secondItem="UhC-aw-lUm" secondAttribute="height" id="fWM-5l-gZN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Site Consultation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-99-81u">
+                                <rect key="frame" x="57" y="16" width="171" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkH-xs-RYa">
+                                <rect key="frame" x="57" y="41" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cw1-pZ-pfT">
+                                <rect key="frame" x="16" y="70" width="248" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Zkd-VW-Q2f"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Y3-TgZ">
+                                <rect key="frame" x="16" y="87" width="252" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="d5M-NG-aR8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Nov 18 12:00 pm - 1:00 pm">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-X9-UnY">
+                                <rect key="frame" x="16" y="147" width="252" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mBa-DG-911"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Nov 19 12:00 pm - 1:00 pm">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMc-jP-unP">
+                                <rect key="frame" x="16" y="207" width="252" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zZA-rv-bGW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Nov 21 12:00 pm - 1:00 pm">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkh-wp-LGj">
+                                <rect key="frame" x="16" y="263" width="252" height="64"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="None of these work for me"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QMc-jP-unP" firstAttribute="top" secondItem="KpU-X9-UnY" secondAttribute="bottom" constant="16" id="17W-PL-zvz"/>
+                            <constraint firstItem="KpU-X9-UnY" firstAttribute="trailing" secondItem="fyP-Y3-TgZ" secondAttribute="trailing" id="1A2-K4-UBc"/>
+                            <constraint firstAttribute="trailing" secondItem="fyP-Y3-TgZ" secondAttribute="trailing" constant="16" id="1IQ-A0-IAK"/>
+                            <constraint firstItem="8cc-99-81u" firstAttribute="leading" secondItem="UhC-aw-lUm" secondAttribute="trailing" constant="16" id="1xv-VT-O26"/>
+                            <constraint firstItem="UhC-aw-lUm" firstAttribute="leading" secondItem="ypb-HT-ILp" secondAttribute="leading" constant="16" id="5RV-UC-WpX"/>
+                            <constraint firstItem="Dkh-wp-LGj" firstAttribute="leading" secondItem="QMc-jP-unP" secondAttribute="leading" id="7Pg-AO-JlB"/>
+                            <constraint firstItem="KpU-X9-UnY" firstAttribute="trailing" secondItem="QMc-jP-unP" secondAttribute="trailing" id="DJl-kP-64g"/>
+                            <constraint firstItem="KpU-X9-UnY" firstAttribute="leading" secondItem="QMc-jP-unP" secondAttribute="leading" id="Ha1-HI-cgC"/>
+                            <constraint firstItem="KpU-X9-UnY" firstAttribute="top" secondItem="fyP-Y3-TgZ" secondAttribute="bottom" constant="16" id="IqH-0L-L53"/>
+                            <constraint firstItem="Cw1-pZ-pfT" firstAttribute="leading" secondItem="ypb-HT-ILp" secondAttribute="leading" constant="16" id="JJe-iU-qGp"/>
+                            <constraint firstItem="fyP-Y3-TgZ" firstAttribute="top" secondItem="Cw1-pZ-pfT" secondAttribute="bottom" constant="16" id="Kag-T5-qXm"/>
+                            <constraint firstItem="KpU-X9-UnY" firstAttribute="leading" secondItem="fyP-Y3-TgZ" secondAttribute="leading" id="T9S-yA-CeB"/>
+                            <constraint firstItem="8cc-99-81u" firstAttribute="top" secondItem="ypb-HT-ILp" secondAttribute="top" constant="16" id="Vfz-9B-mbM"/>
+                            <constraint firstItem="Cw1-pZ-pfT" firstAttribute="top" secondItem="ZkH-xs-RYa" secondAttribute="bottom" constant="8" symbolic="YES" id="XWQ-HI-dPy"/>
+                            <constraint firstItem="fyP-Y3-TgZ" firstAttribute="leading" secondItem="ypb-HT-ILp" secondAttribute="leading" constant="16" id="ZpY-qF-P76"/>
+                            <constraint firstItem="Dkh-wp-LGj" firstAttribute="top" secondItem="QMc-jP-unP" secondAttribute="bottom" constant="12" id="crS-Pj-iVh"/>
+                            <constraint firstItem="ZkH-xs-RYa" firstAttribute="leading" secondItem="8cc-99-81u" secondAttribute="leading" id="gAN-Ed-dKj"/>
+                            <constraint firstAttribute="trailing" secondItem="Cw1-pZ-pfT" secondAttribute="trailing" constant="20" id="lj9-9G-ENf"/>
+                            <constraint firstItem="ZkH-xs-RYa" firstAttribute="top" secondItem="8cc-99-81u" secondAttribute="bottom" id="uju-Wc-Q7X"/>
+                            <constraint firstItem="Dkh-wp-LGj" firstAttribute="trailing" secondItem="QMc-jP-unP" secondAttribute="trailing" id="vts-ab-BUb"/>
+                            <constraint firstItem="UhC-aw-lUm" firstAttribute="top" secondItem="8cc-99-81u" secondAttribute="top" id="wJN-sd-FDN"/>
+                            <constraint firstAttribute="bottom" secondItem="Dkh-wp-LGj" secondAttribute="bottom" constant="16" id="xBt-Rh-uCp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ypb-HT-ILp" secondAttribute="trailing" constant="16" id="LGd-9f-2bX"/>
+                    <constraint firstItem="ypb-HT-ILp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NbT-BV-WZT"/>
+                    <constraint firstItem="ypb-HT-ILp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="W85-Wj-JGi"/>
+                    <constraint firstAttribute="bottom" secondItem="ypb-HT-ILp" secondAttribute="bottom" constant="17.5" id="fKu-Bh-HKw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="34" y="218"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="calendar-filled" width="25" height="25"/>
+    </resources>
+</document>

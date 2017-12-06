@@ -49,7 +49,9 @@ class HomePresenter: HomePresentationLogic
             
             
         }
-        self.viewController?.displayBusinesses(viewModel: Home.FetchBusinesses.ViewModel(businesses: passingOn))
+        DispatchQueue.main.async {
+            self.viewController?.displayBusinesses(viewModel: Home.FetchBusinesses.ViewModel(businesses: passingOn))
+        }
     }
     
 }

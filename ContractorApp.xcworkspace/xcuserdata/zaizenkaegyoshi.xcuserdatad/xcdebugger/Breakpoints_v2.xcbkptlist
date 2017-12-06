@@ -186,13 +186,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/ShowInbox/ShowInboxInteractor.swift"
-            timestampString = "533646852.346263"
+            timestampString = "534252022.772138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fetchInbox()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomeViewController.swift"
-            timestampString = "533646852.346747"
+            timestampString = "534224401.266378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomeViewController.swift"
-            timestampString = "533646852.346807"
+            timestampString = "534224401.266443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.815612"
+            timestampString = "534252022.772382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "sendImage(request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.81567"
+            timestampString = "534252022.772425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "sendImage(request:)"
             landmarkType = "7">
             <Locations>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.815715"
+            timestampString = "534252022.772461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "sendImage(request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.815786"
+            timestampString = "534252022.772497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
             <Locations>
@@ -506,7 +506,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomePresenter.swift"
-            timestampString = "533646852.347355"
+            timestampString = "534224401.266732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomePresenter.swift"
-            timestampString = "533646852.347393"
+            timestampString = "534224401.266765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "presentBusinesses(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,7 +538,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomeViewController.swift"
-            timestampString = "533646852.347429"
+            timestampString = "534224401.266797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -554,7 +554,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Home/HomeViewController.swift"
-            timestampString = "533646852.347478"
+            timestampString = "534224401.266832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -575,7 +575,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "search(params:completion:)"
+            landmarkName = "search(searchParams:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -714,13 +714,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/ShowInbox/ShowInboxInteractor.swift"
-            timestampString = "533646852.347773"
+            timestampString = "534252022.772682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "configureDatabase()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -730,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816058"
+            timestampString = "534252022.772718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageViewController.swift"
-            timestampString = "533674978.816102"
+            timestampString = "534252022.772754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "didPressRightButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -762,11 +762,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816143"
+            timestampString = "534252022.772804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "sendMessage(request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816183"
+            timestampString = "534252022.772838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "sendMessage(withData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816223"
+            timestampString = "534252022.772907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816261"
+            timestampString = "534252022.77294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageInteractor.swift"
-            timestampString = "533674978.816301"
+            timestampString = "534252022.772973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -842,12 +842,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractorApp/Scenes/Message/MessageViewController.swift"
-            timestampString = "533674978.816338"
+            timestampString = "534252022.773007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContractorApp/Scenes/Message/MessageViewController.swift"
+            timestampString = "534252022.773056"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "sendQuote()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContractorApp/Scenes/AddProject/AddProjectInteractor.swift"
+            timestampString = "534247315.810385"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "addProject(request:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

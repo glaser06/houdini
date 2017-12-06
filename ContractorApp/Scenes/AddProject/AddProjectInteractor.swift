@@ -61,7 +61,7 @@ class AddProjectInteractor: AddProjectBusinessLogic, AddProjectDataStore
         
 //        sending firebase to create conversation
         var mdata: [String: Any] = [
-            "contractorID": "contractor1",
+            "contractorID": "5Z006yNpF8YGDRDpXPtW13sB6br2",
             "contractorName": self.business.name,
             "updatedAt": Date().timeIntervalSince1970,
             "userID": Auth.auth().currentUser!.uid,
@@ -79,5 +79,6 @@ class AddProjectInteractor: AddProjectBusinessLogic, AddProjectDataStore
         let key = convoRef.key
         convoRef.setValue(mdata)
         ref.child("users").child(user.uid).child("conversations").child(key).setValue(mdata)
+        ref.child("users").child("5Z006yNpF8YGDRDpXPtW13sB6br2").child("conversations").child(key).setValue(mdata)
     }
 }

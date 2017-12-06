@@ -62,6 +62,8 @@
 		E35F21DB1FA10093006C57E0 /* InboxTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35F21D91FA10093006C57E0 /* InboxTableCell.xib */; };
 		E3872DD21FBCA772009E70FF /* ImageMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3872DD01FBCA772009E70FF /* ImageMessageTableViewCell.swift */; };
 		E3872DD31FBCA772009E70FF /* ImageMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3872DD11FBCA772009E70FF /* ImageMessageTableViewCell.xib */; };
+		E396AD631FD808280088DC63 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E396AD611FD808270088DC63 /* ScheduleTableViewCell.xib */; };
+		E396AD641FD808280088DC63 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E396AD621FD808270088DC63 /* ScheduleTableViewCell.swift */; };
 		E39E8D0F1F8E2ABC00CF11B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E8D0E1F8E2ABC00CF11B6 /* AppDelegate.swift */; };
 		E39E8D111F8E2ABC00CF11B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E8D101F8E2ABC00CF11B6 /* ViewController.swift */; };
 		E39E8D141F8E2ABC00CF11B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39E8D121F8E2ABC00CF11B6 /* Main.storyboard */; };
@@ -205,6 +207,8 @@
 		E3872DD01FBCA772009E70FF /* ImageMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageTableViewCell.swift; sourceTree = "<group>"; };
 		E3872DD11FBCA772009E70FF /* ImageMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageTableViewCell.xib; sourceTree = "<group>"; };
 		E38848A27CAF7D14E0543517 /* Pods_ContractorAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContractorAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E396AD611FD808270088DC63 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		E396AD621FD808270088DC63 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		E39E8D0B1F8E2ABC00CF11B6 /* ContractorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContractorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39E8D0E1F8E2ABC00CF11B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E39E8D101F8E2ABC00CF11B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -649,6 +653,8 @@
 		E3F9E5091FB3560B00ADEEB0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E396AD621FD808270088DC63 /* ScheduleTableViewCell.swift */,
+				E396AD611FD808270088DC63 /* ScheduleTableViewCell.xib */,
 				E3872DD01FBCA772009E70FF /* ImageMessageTableViewCell.swift */,
 				E3872DD11FBCA772009E70FF /* ImageMessageTableViewCell.xib */,
 				E3F9E50A1FB3561900ADEEB0 /* MessageTableViewCell.swift */,
@@ -803,6 +809,7 @@
 				E35F21DB1FA10093006C57E0 /* InboxTableCell.xib in Resources */,
 				E3C11BA91FB32595003F77A4 /* UserReviewTableViewCell.xib in Resources */,
 				E341423B1FCD69990084F591 /* BusinessHomeCell.xib in Resources */,
+				E396AD631FD808280088DC63 /* ScheduleTableViewCell.xib in Resources */,
 				E3872DD31FBCA772009E70FF /* ImageMessageTableViewCell.xib in Resources */,
 				E35F21A61FA0CA9A006C57E0 /* ProjectTableCell.xib in Resources */,
 				E39E8D141F8E2ABC00CF11B6 /* Main.storyboard in Resources */,
@@ -1022,6 +1029,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E35F219F1FA0C863006C57E0 /* ListProjectsRouter.swift in Sources */,
+				E396AD641FD808280088DC63 /* ScheduleTableViewCell.swift in Sources */,
 				E3AF2AA81FA0936100683FD0 /* AddMultimediaRouter.swift in Sources */,
 				E325B2191FBC72910023215F /* SignInWorker.swift in Sources */,
 				E39E8D111F8E2ABC00CF11B6 /* ViewController.swift in Sources */,

@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+let QuoteCellIdentifier: String = "QuoteCell"
+
 class QuoteMessageTableCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -19,6 +22,24 @@ class QuoteMessageTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    
+    var decide: ((Bool) -> Void)!
+    
+    func setCell(amount: String, desc: String, decision: @escaping (Bool) -> Void) {
+        self.quoteLabel.text = amount
+        self.descLabel.text = desc
+        self.decide = decision
+    }
+    
+    @IBAction func accept() {
+        self.decide(true)
+    }
+    @IBAction func decline() {
+        self.decide(false)
     }
     
 }

@@ -38,7 +38,7 @@ class ListBusinessesPresenter: ListBusinessesPresentationLogic
             var anotherList: [ListBusinesses.FetchBusinesses.ViewModel.DisplayableBusiness] = []
             for business in each.value {
                 let image: UIImage = business.images.count > 0 ? business.images[0] : #imageLiteral(resourceName: "placeholder")
-                let displayed = ListBusinesses.FetchBusinesses.ViewModel.DisplayableBusiness(name: business.name, type: business.businessType[0].displayName, image: image, reviewCount: 30)
+                let displayed = ListBusinesses.FetchBusinesses.ViewModel.DisplayableBusiness(name: business.name, type: business.businessType[0].displayName, image: image, reviewCount: business.reviewCount)
                 anotherList.append(displayed)
             }
             passingOn[category] = anotherList

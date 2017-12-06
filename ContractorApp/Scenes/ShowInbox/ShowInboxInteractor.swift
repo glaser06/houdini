@@ -63,7 +63,8 @@ class ShowInboxInteractor: ShowInboxBusinessLogic, ShowInboxDataStore
                 let name = data?["contractorName"] as? String
                 let yelpID = data?["yelpID"] as? String
                 let convo = Conversation(name: name!, convoID: snapshot.key, yelpID: yelpID!)
-                strongSelf.conversations.append(convo)
+                strongSelf.conversations.insert(convo, at: 0)
+//                strongSelf.conversations.append(convo)
                 strongSelf.presenter?.presentInbox(response: ShowInbox.FetchInbox.Response(conversations: strongSelf.conversations))
                 
             })

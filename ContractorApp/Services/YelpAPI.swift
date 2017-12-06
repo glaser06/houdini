@@ -31,18 +31,23 @@ class YelpAPI {
     
     static let url = "https://api.yelp.com"
     
-    static func search(params: SearchParam,  completion: @escaping ((JSON) -> Void)) {
+    static func search(searchParams: SearchParam,  completion: @escaping ((JSON) -> Void)) {
         let reqURL = "\(url)/v3/businesses/search"
-        let params: Parameters = [
-            "term": params.term,
-            "location": params.location,
-            "longitude": params.longitude,
-            "latitude": params.lattitude,
-            "radius": params.radius,
-            "limit": params.limit,
-            "sort_by": params.sort_by,
-            "categories": params.categories,
+        
+        var params: Parameters = [
+            "term": searchParams.term,
+            "location": searchParams.location,
+            "longitude": searchParams.longitude,
+            "latitude": searchParams.lattitude,
+            "radius": searchParams.radius,
+            
+            "sort_by": searchParams.sort_by,
+            "categories": searchParams.categories,
             ]
+        if searchParams.limit >= 0 {
+            params["limit"] = searchParams.limit
+        }
+        
         getRequest(reqURL: reqURL, params: params, completion: completion)
         
         

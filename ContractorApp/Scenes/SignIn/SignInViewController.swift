@@ -96,7 +96,9 @@ class SignInViewController: UIViewController, SignInDisplayLogic, GIDSignInUIDel
                     let registration = userData?["registered_at"] as? Double
                     if registration == nil {
                         print("no registration aaaaaaaaaaaaaaaaaa \n\n\n\n\n")
-                        self.ref.child("users").child(u!.uid).updateChildValues(["registered_at": Date().timeIntervalSince1970])
+                        self.ref.child("users").child(u!.uid).updateChildValues(["registered_at": Date().timeIntervalSince1970,
+                                                                                 "is_contractor": false])
+                        
 //                            .setValue([
 //                            "username": u!.displayName,
 //                            "id": u!.uid,

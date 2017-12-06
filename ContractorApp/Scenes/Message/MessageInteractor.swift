@@ -21,6 +21,8 @@ protocol MessageBusinessLogic
     func configureDatabase()
     func configureStorage()
     func sendImage(request: Message.SendImage.Request)
+    func sendQuote(request: Message.SendQuote.Request)
+    func sendSchedule(request: Message.SendSchedule.Request)
 }
 
 
@@ -65,6 +67,19 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
     func fetchMessages() {
         self.presenter?.presentMessages(response: Message.FetchMessages.Response(userName: Auth.auth().currentUser?.displayName ?? "", businessName: conversation.name,messages: self.messages))
     }
+    func sendQuote(request: Message.SendQuote.Request) {
+        let msg = request.message
+        var data: [String: Any] = ["quotePrice": msg.quotePrice]
+        
+        data["quoteDetail"] = msg.quoteDescription
+        data["quoteTitle"] = ""
+        data["text"] = msg.message
+        data["name"] = Auth.auth().currentUser?.displayName ?? ""
+        data["type"] = 4
+        data["status"] = 0
+        sendMessage(withData: data)
+ 
+    }
     func sendMessage(request: Message.SendMessage.Request) {
         
         
@@ -85,6 +100,18 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
 //        self.messages.insert(another, at: 0)
 //        self.presenter?.presentMessages(response: Message.FetchMessages.Response(userName: Auth.auth().currentUser?.displayName ?? "", businessName: conversation.name,  messages: self.messages))
     }
+    func sendSchedule(request: Message.SendSchedule.Request) {
+        let msg = request.message
+        
+        var data: [String: Any] = [:]
+        
+        data["text"] = msg.message
+        data["name"] = Auth.auth().currentUser?.displayName ?? ""
+        data["type"] = 3
+        data["status"] = 0
+        sendMessage(withData: data)
+        
+    }
     func configureDatabase() {
         ref = Database.database().reference()
         // Listen for new messages in the Firebase database
@@ -99,7 +126,7 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
             let name: String = msg["name"] as? String ?? ""
             let text: String = msg["text"] as? String ?? ""
             let senderID : String = msg["senderID"] as? String ?? ""
-            let type: Int = msg["type"] as? Int ?? 1
+            let msgType: Int = msg["type"] as? Int ?? 1
             var img: UIImage?
             
             if let imageURL = msg["ImageURL"] as? String {
@@ -138,11 +165,22 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
 //                cell.textLabel?.text = "sent by: \(name)"
             } else {
                 var message: GenericMessage
-                if img != nil {
-                    message = Message.ImageMessage(message: "", sender: senderID, image: img)
+                if msgType == 4 {
+                    let quote = msg["quotePrice"] as! Double
+                    let desc = msg["quoteDetail"] as! String
+                    
+                    message = Message.QuoteMessage(message: "", sender: senderID, quotePrice: quote, quoteDescription: "", messageID: snapshot.key)
                 } else {
-                    message = Message.Message(message: text, sender: senderID)
+                    if img != nil {
+                        message = Message.ImageMessage(message: "", sender: senderID, image: img)
+                    } else if msgType == 3 {
+                        message = Message.ScheduleMessage(message: "", sender: senderID, availabilities: [])
+                    } else {
+                        message = Message.Message(message: text, sender: senderID)
+                    }
                 }
+                
+                
                 
                 
                 strongSelf.messages.insert(message, at: 0)
@@ -176,6 +214,7 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
         
         // Push data to Firebase Database
         var messageRef = self.ref.child("conversation-messages").child(self.conversation.conversationID)
+        
         messageRef.childByAutoId().setValue(mdata)
         
         //        self.clientTable.scrollToRow(at: <#T##IndexPath#>, at: <#T##UITableViewScrollPosition#>, animated: <#T##Bool#>)
