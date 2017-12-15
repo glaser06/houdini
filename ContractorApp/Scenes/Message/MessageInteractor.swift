@@ -59,6 +59,7 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
     
     var conversation: Conversation!
     var yelpID: String! = ""
+    var otherID: String = ""
     
     var currentMsgIndex: Int = 0
     
@@ -118,6 +119,7 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
 //        self.ref.chi
 //        self.ref.child(<#T##pathString: String##String#>)
 //        _refHandle = self.ref.child("messages")
+        let user = Auth.auth().currentUser!
         var messageRef = self.ref.child("conversation-messages").child(self.conversation.conversationID)
         _refHandle = messageRef.observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
@@ -126,11 +128,13 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
             let name: String = msg["name"] as? String ?? ""
             let text: String = msg["text"] as? String ?? ""
             let senderID : String = msg["senderID"] as? String ?? ""
+            
             let msgType: Int = msg["type"] as? Int ?? 1
             var img: UIImage?
             
             if let imageURL = msg["ImageURL"] as? String {
                 if imageURL.hasPrefix("gs://") {
+                    let temp = strongSelf.messages.count
                     Storage.storage().reference(forURL: imageURL).getData(maxSize: INT64_MAX) {(data, error) in
                         if let error = error {
                             print("Error downloading: \(error)")
@@ -144,8 +148,8 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
                             message = Message.Message(message: text, sender: senderID)
                         }
                         
-                        
-                        strongSelf.messages.insert(message, at: 0)
+                        let insertIndex = strongSelf.messages.count - temp
+                        strongSelf.messages.insert(message, at: insertIndex)
                         strongSelf.presenter?.presentMessages(response: Message.FetchMessages.Response(userName: Auth.auth().currentUser?.displayName ?? "", businessName: strongSelf.conversation.name,messages: strongSelf.messages))
                         
                     }
@@ -174,7 +178,11 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
                     if img != nil {
                         message = Message.ImageMessage(message: "", sender: senderID, image: img)
                     } else if msgType == 3 {
-                        message = Message.ScheduleMessage(message: "", sender: senderID, availabilities: [])
+                        let dur = (msg["duration"] as? Int ) ?? 0
+                        let dates = (msg["dates"] as? [Double]) ?? []
+                        let title = (msg["title"] as? String) ?? ""
+                        message = Message.ScheduleMessage(message: "", sender: senderID, duration: dur, title: title, availabilities: dates)
+//                        message = Message.ScheduleMessage(message: "", sender: senderID, availabilities: [])
                     } else {
                         message = Message.Message(message: text, sender: senderID)
                     }
@@ -212,10 +220,24 @@ class MessageInteractor: MessageBusinessLogic, MessageDataStore
         mdata["timestamp"] = Date().timeIntervalSince1970
         
         
+        
         // Push data to Firebase Database
         var messageRef = self.ref.child("conversation-messages").child(self.conversation.conversationID)
+        var newRef = messageRef.childByAutoId()
+        newRef.setValue(mdata)
         
-        messageRef.childByAutoId().setValue(mdata)
+        if mdata["type"]! as! Int == 3 { // schedule
+            self.ref.child("conversation-data").setValue(["scheduleID": newRef.key])
+
+            self.ref.child("users").child(user.uid).child("conversations").child(self.conversation.conversationID).setValue(["scheduleID": newRef.key])
+            self.ref.child("users").child(self.conversation.contractorID).child("conversations").child(self.conversation.conversationID).setValue(["scheduleID": newRef.key])
+            
+        } else if mdata["type"]! as! Int == 4  { // quote
+            self.ref.child("conversation-data").setValue(["quoteID": newRef.key])
+            self.ref.child("users").child(user.uid).child("conversations").child(self.conversation.conversationID).setValue(["quoteID": newRef.key])
+            self.ref.child("users").child(self.conversation.contractorID).child("conversations").child(self.conversation.conversationID).setValue(["quoteID": newRef.key])
+        }
+        
         
         //        self.clientTable.scrollToRow(at: <#T##IndexPath#>, at: <#T##UITableViewScrollPosition#>, animated: <#T##Bool#>)
     }

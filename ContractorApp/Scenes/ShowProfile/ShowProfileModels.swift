@@ -14,18 +14,20 @@ import UIKit
 
 enum ShowProfile
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum FetchUser
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var name: String
+        }
+        struct ViewModel
+        {
+            var name: String
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

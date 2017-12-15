@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHX-Q2-nqr">
-                        <rect key="frame" x="16" y="8" width="255" height="147"/>
+                        <rect key="frame" x="20" y="8" width="251" height="147"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iac-6w-vNi">
                                 <rect key="frame" x="8" y="8" width="239" height="131"/>
@@ -46,7 +46,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QHX-Q2-nqr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8iV-ee-0X7"/>
+                    <constraint firstItem="QHX-Q2-nqr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8iV-ee-0X7"/>
                     <constraint firstAttribute="trailing" secondItem="QHX-Q2-nqr" secondAttribute="trailing" constant="70" id="FpZ-Ky-ccS"/>
                     <constraint firstItem="QHX-Q2-nqr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OP6-Tk-xNR"/>
                     <constraint firstAttribute="bottom" secondItem="QHX-Q2-nqr" secondAttribute="bottom" constant="10.5" id="hHI-8E-HFL"/>

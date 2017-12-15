@@ -115,7 +115,10 @@ class AddProjectViewController: UIViewController, AddProjectDisplayLogic
         }
         self.interactor?.addProject(request: AddProject.AddProject.Request(name: nameField.text ?? nameField.placeholder ?? "", jobType: "", details: detailField.text))
         ProjectWorker.sharedInstance.images = []
+        self.presentingViewController?.navigationController?.popViewController(animated: false)
         self.dismiss(animated: true, completion: nil)
+        
+        
     }
     @IBAction func close() {
 //        self.presentingViewController!.navigationController!.tabBarController!.selectedIndex = 2

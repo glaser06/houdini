@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypb-HT-ILp">
-                        <rect key="frame" x="20" y="11" width="284" height="343"/>
+                        <rect key="frame" x="20" y="11" width="280" height="343"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-filled" translatesAutoresizingMaskIntoConstraints="NO" id="UhC-aw-lUm">
                                 <rect key="frame" x="16" y="16" width="25" height="25"/>
@@ -48,14 +48,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cw1-pZ-pfT">
-                                <rect key="frame" x="16" y="70" width="248" height="1"/>
+                                <rect key="frame" x="16" y="70" width="244" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Zkd-VW-Q2f"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Y3-TgZ">
-                                <rect key="frame" x="16" y="87" width="252" height="44"/>
+                                <rect key="frame" x="16" y="87" width="248" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="d5M-NG-aR8"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-X9-UnY">
-                                <rect key="frame" x="16" y="147" width="252" height="44"/>
+                                <rect key="frame" x="16" y="147" width="248" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mBa-DG-911"/>
                                 </constraints>
@@ -77,7 +77,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMc-jP-unP">
-                                <rect key="frame" x="16" y="207" width="252" height="44"/>
+                                <rect key="frame" x="16" y="207" width="248" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="zZA-rv-bGW"/>
                                 </constraints>
@@ -88,7 +88,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkh-wp-LGj">
-                                <rect key="frame" x="16" y="263" width="252" height="64"/>
+                                <rect key="frame" x="16" y="263" width="248" height="64"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="None of these work for me"/>
                             </button>
@@ -126,13 +126,20 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ypb-HT-ILp" secondAttribute="trailing" constant="16" id="LGd-9f-2bX"/>
+                    <constraint firstAttribute="trailing" secondItem="ypb-HT-ILp" secondAttribute="trailing" constant="20" id="LGd-9f-2bX"/>
                     <constraint firstItem="ypb-HT-ILp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NbT-BV-WZT"/>
                     <constraint firstItem="ypb-HT-ILp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="W85-Wj-JGi"/>
                     <constraint firstAttribute="bottom" secondItem="ypb-HT-ILp" secondAttribute="bottom" constant="17.5" id="fKu-Bh-HKw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel1" destination="fyP-Y3-TgZ" id="yVE-Hf-Mfk"/>
+                <outlet property="dateLabel2" destination="KpU-X9-UnY" id="sNT-2O-fs2"/>
+                <outlet property="dateLabel3" destination="QMc-jP-unP" id="767-sa-Hx2"/>
+                <outlet property="durationLabel" destination="ZkH-xs-RYa" id="S1j-pt-z6T"/>
+                <outlet property="titleLabel" destination="8cc-99-81u" id="q8w-MN-Z0z"/>
+            </connections>
             <point key="canvasLocation" x="34" y="218"/>
         </tableViewCell>
     </objects>

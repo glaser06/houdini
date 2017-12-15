@@ -18,6 +18,8 @@ protocol ListBusinessesDisplayLogic: class
     func displayAll(viewModel: ListBusinesses.FetchAll.ViewModel)
     func displaySearch(viewModel: ListBusinesses.Search.ViewModel)
     func displayCategories(vm: ListBusinesses.FetchCategories.ViewModel)
+    
+    func updateImage(vm: ListBusinesses.UpdateImage.ViewModel)
 }
 
 class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
@@ -84,7 +86,9 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         if let a  = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             a.headerReferenceSize = CGSize(width: 0, height: 50)
         }
+        
         categoryCollectionView.register(UINib(nibName: "BusinessCollectionCell", bundle: nil), forCellWithReuseIdentifier: "BusinessCell")
+        categoryCollectionView.register(UINib(nibName: "BusinessHomeCell", bundle: nil), forCellWithReuseIdentifier: "ResultCell")
 //        self.categoryCollectionView.register(UINib(nibName: "DisplayCategoryTableCell", bundle: nil), forCellReuseIdentifier: "DisplayCategoryCell")
 //        self.categoryCollectionView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ContractorCell")
         
@@ -117,6 +121,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
         self.interactor?.search(request: req)
     }
     func displaySearch(viewModel: ListBusinesses.Search.ViewModel) {
+        self.categoryCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         self.isSearch = true
         self.searchBar.text = viewModel.query
         let results = viewModel.businesses
@@ -127,6 +132,16 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
     func displayBusinesses(viewModel: ListBusinesses.FetchBusinesses.ViewModel) {
 //        self.businesses = viewModel.businesses
         self.categoryCollectionView.reloadData()
+    }
+    func updateImage(vm: ListBusinesses.UpdateImage.ViewModel) {
+        self.businesses[vm.index].image = vm.image
+        let indexPath: IndexPath = IndexPath(row: vm.index, section: 0)
+        if self.businesses.count > 0 {
+            self.categoryCollectionView.reloadItems(at: [indexPath])
+        }
+        
+        
+        
     }
     func displayAll(viewModel: ListBusinesses.FetchAll.ViewModel) {
         self.isSearch = false
@@ -147,7 +162,7 @@ class ListBusinessesViewController: UIViewController, ListBusinessesDisplayLogic
             return true
         } else {
             self.isSearch = false
-            self.fetchAll()
+            self.fetchCategories()
             return false
         }
         
@@ -161,19 +176,65 @@ extension ListBusinessesViewController: UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if self.isSearch {
+            return self.businesses.count
+        } else {
+            return categories.count
+        }
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessCell", for: indexPath) as! BusinessCollectionCell
-        let data = categories[indexPath.row]
-        cell.setCell(name: data.0, img: data.1)
-        return cell
+        if self.isSearch {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as! BusinessHomeCell
+            let data = businesses[indexPath.item]
+            cell.setCell(name: data.name, img: data.image, category: "", reviewCount: "23")
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessCell", for: indexPath) as! BusinessCollectionCell
+            let data = categories[indexPath.item]
+            cell.setCell(name: data.0, img: data.1)
+            return cell
+        }
+        
     }
 }
+extension ListBusinessesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isSearch {
+            let selected = self.businesses[indexPath.item]
+            self.performSegue(withIdentifier: "ShowBusiness", sender: self)
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            let selected = self.categories[indexPath.item]
+            self.searchBar.text = selected.0
+            self.search()
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
+    }
+}
+
 extension ListBusinessesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let v = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "titleHeader", for: indexPath)
+        let label = v.viewWithTag(1) as! UILabel
+        if isSearch {
+            label.text = "30 Results"
+            
+        } else {
+            label.text = "Home Services"
+        }
+        
+        
         return v
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if isSearch {
+            return CGSize(width: 156, height: 200)
+        } else {
+            return CGSize(width: 165, height: 165)
+        }
+        
     }
     
 }

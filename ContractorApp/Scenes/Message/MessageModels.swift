@@ -52,9 +52,11 @@ enum Message
         
         struct Appointment {
             var datetime: Date
-            var duration: Double
+            
         }
-        var availabilities: [Appointment]
+        var duration: Int
+        var title: String
+        var availabilities: [Double]
         
     }
     // MARK: Use cases

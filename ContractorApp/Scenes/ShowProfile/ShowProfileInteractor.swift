@@ -11,31 +11,42 @@
 //
 
 import UIKit
+import Firebase
 
 protocol ShowProfileBusinessLogic
 {
-  func doSomething(request: ShowProfile.Something.Request)
+//    func doSomething(request: ShowProfile.Something.Request)
 }
 
 protocol ShowProfileDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
+    var user: FirebaseAuth.User? { get set }
 }
 
 class ShowProfileInteractor: ShowProfileBusinessLogic, ShowProfileDataStore
 {
-  var presenter: ShowProfilePresentationLogic?
-  var worker: ShowProfileWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: ShowProfile.Something.Request)
-  {
-    worker = ShowProfileWorker()
-    worker?.doSomeWork()
+    var presenter: ShowProfilePresentationLogic?
+    var worker: ShowProfileWorker?
+    //var name: String = ""
+    var user: FirebaseAuth.User?
     
-    let response = ShowProfile.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func fetchUser() {
+        self.user = Auth.auth().currentUser
+        
+        let name: String = (user?.displayName)!
+//        let img: UIImage = user?.photoURL
+        
+    }
+    
+//    func doSomething(request: ShowProfile.Something.Request)
+//    {
+//        worker = ShowProfileWorker()
+//        worker?.doSomeWork()
+//        
+//        let response = ShowProfile.Something.Response()
+//        presenter?.presentSomething(response: response)
+//    }
 }

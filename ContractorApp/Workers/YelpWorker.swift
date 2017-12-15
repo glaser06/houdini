@@ -13,6 +13,8 @@
 import UIKit
 import SwiftyJSON
 import CoreLocation
+import Alamofire
+import AlamofireImage
 
 class YelpWorker
 {
@@ -69,6 +71,19 @@ class YelpWorker
             completion(processed)
             
         }
+    }
+    func fetchImage(imgURL: String, completion: @escaping (UIImage) -> Void) {
+        Alamofire.request(imgURL).responseImage(completionHandler: { (response) in
+            if let image = response.result.value {
+                print("whaaa")
+                //                self.business.images.append(image)
+                completion(image)
+                //                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            } else {
+                completion(#imageLiteral(resourceName: "placeholder"))
+                //                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            }
+        })
     }
     func parseLocation(json: JSON) -> Address {
         let addr = json["address1"].stringValue

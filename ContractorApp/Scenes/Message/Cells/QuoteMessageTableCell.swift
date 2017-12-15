@@ -27,9 +27,10 @@ class QuoteMessageTableCell: UITableViewCell {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
+    var messageID: String = ""
     var decide: ((Bool) -> Void)!
     
-    func setCell(amount: String, desc: String, decision: @escaping (Bool) -> Void) {
+    func setCell(amount: String, desc: String, id: String,  decision: @escaping (Bool) -> Void) {
         self.quoteLabel.text = amount
         self.descLabel.text = desc
         self.decide = decision

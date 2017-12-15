@@ -83,6 +83,13 @@ class ListBusinessesInteractor: ListBusinessesBusinessLogic, ListBusinessesDataS
             self.results = results
             let resp = ListBusinesses.Search.Response(businesses: results, query: query)
             self.presenter?.presentSearch(response: resp)
+            for (index, each) in results.enumerated() {
+                self.yelpWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
+                    self.results[index].images.append(image)
+                    self.presenter?.updateImage(response: ListBusinesses.UpdateImage.Response(image: image, section: "0", index: index))
+                })
+                
+            }
 //            self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
 //            for (index, each) in results.enumerated() {
 //                self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in

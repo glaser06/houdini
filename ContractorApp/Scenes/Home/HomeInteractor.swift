@@ -42,34 +42,8 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
     func fetchBusinesses() {
 //        most popular (most reviewed)
         YelpAPI.cacher.tokenWaiter.notify(queue: DispatchQueue.main) {
-            self.yelpWorker.search(params: YelpAPI.SearchParam(term: "", location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: 4, sort_by: "review_count", categories: "homeservices")) { (results) in
-                
-                self.businesses["Popular"] = results
-                self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
-                for (index, each) in results.enumerated() {
-                    self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
-                        self.businesses["Popular"]![index].images.append(image)
-                        self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Popular", index: index))
-                    })
             
-                }
-                
-                
-            }
-            self.yelpWorker.search(params: YelpAPI.SearchParam(term: "", location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: 4, sort_by: "distance", categories: "homeservices")) { (results) in
-                
-                self.businesses["Nearby"] = results
-                self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
-                for (index, each) in results.enumerated() {
-                    self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
-                        self.businesses["Nearby"]![index].images.append(image)
-                        self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Nearby", index: index))
-                    })
-                    
-                }
-                
-                
-            }
+            
             self.yelpWorker.search(params: YelpAPI.SearchParam(term: "", location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: 4, sort_by: "rating", categories: "homeservices")) { (results) in
                 
                 self.businesses["Top Rated"] = results
@@ -79,6 +53,34 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
                         self.businesses["Top Rated"]![index].images.append(image)
                         self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Top Rated", index: index))
                     })
+                    
+                }
+                self.yelpWorker.search(params: YelpAPI.SearchParam(term: "", location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: 4, sort_by: "review_count", categories: "homeservices")) { (results) in
+                    
+                    self.businesses["Popular"] = results
+                    self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
+                    for (index, each) in results.enumerated() {
+                        self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
+                            self.businesses["Popular"]![index].images.append(image)
+                            self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Popular", index: index))
+                        })
+                        
+                    }
+                    self.yelpWorker.search(params: YelpAPI.SearchParam(term: "", location: "", longitude: -79.95049, lattitude: 40.45659, radius: 20000, limit: 4, sort_by: "distance", categories: "homeservices")) { (results) in
+                        
+                        self.businesses["Nearby"] = results
+                        self.presenter?.presentBusinesses(response: Home.FetchBusinesses.Response(businesses: self.businesses))
+                        for (index, each) in results.enumerated() {
+                            self.homeWorker.fetchImage(imgURL: each.heroImageURL, completion: { (image) in
+                                self.businesses["Nearby"]![index].images.append(image)
+                                self.presenter?.updateImage(response: Home.UpdateImage.Response(image: image, section: "Nearby", index: index))
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    
                     
                 }
                 

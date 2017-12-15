@@ -83,6 +83,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     
     
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -109,6 +110,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     }
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var infoView: UIView!
     
     // MARK: Do something
     
@@ -121,7 +123,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         self.interactor?.sendMessage(request: Message.SendMessage.Request(message: Message.Message(message: self.textView.text!, sender: self.name)))
     }
     func sendSchedule() {
-        self.interactor?.sendSchedule(request: Message.SendSchedule.Request(message: Message.ScheduleMessage(message: "", sender: "", availabilities: [])))
+//        self.interactor?.sendSchedule(request: Message.SendSchedule.Request(message: Message.ScheduleMessage(message: "", sender: "", availabilities: [])))
     }
     func sendQuote() {
         let alertController = UIAlertController(title: "Price Quote", message: "", preferredStyle: .alert)
@@ -157,6 +159,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     }
     func displayMessages(vm: Message.FetchMessages.ViewModel) {
         self.messages = vm.messages
+        self.view.bringSubview(toFront: self.infoView)
         self.titleLabel.text = vm.businessName
         self.tableView?.reloadData()
     }
@@ -223,9 +226,13 @@ extension MessageViewController {
                 
             } else if let m = message as? Message.QuoteMessage {
                 var a = tableView.dequeueReusableCell(withIdentifier: QuoteCellIdentifier) as! QuoteMessageTableCell
-                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, decision: { (decision) in
+                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, id: m.messageID, decision: { (decision) in
                     self.quoteDecision(for: m.messageID, decision: decision)
                 })
+                cell = a
+            } else if let m = message as? Message.ScheduleMessage {
+                var a = tableView.dequeueReusableCell(withIdentifier: ScheduleCellIdentifier) as! ScheduleTableViewCell
+                a.setCell(msg: m)
                 cell = a
             } else {
                 var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"1") as! MessageTableViewCell
@@ -236,12 +243,13 @@ extension MessageViewController {
         } else {
             if let m = message as? Message.QuoteMessage {
                 var a = tableView.dequeueReusableCell(withIdentifier: QuoteCellIdentifier) as! QuoteMessageTableCell
-                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, decision: { (decision) in
+                a.setCell(amount: "$\(m.quotePrice)", desc: m.quoteDescription, id: m.messageID, decision: { (decision) in
                     self.quoteDecision(for: m.messageID, decision: decision)
                 })
                 cell = a
             } else if let m = message as? Message.ScheduleMessage {
                 var a = tableView.dequeueReusableCell(withIdentifier: ScheduleCellIdentifier) as! ScheduleTableViewCell
+                a.setCell(msg: m)
                 cell = a
             } else {
                 var a = tableView.dequeueReusableCell(withIdentifier: MessageCellIdentifier+"2") as! MessageTableViewCell

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O6w-wr-IBc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O6w-wr-IBc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,8 +27,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-Cf-YmB">
                                 <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search services, professionals, etc..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8mA-T9-y0S">
-                                        <rect key="frame" x="46" y="8" width="329" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search services, professionals, etc..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8mA-T9-y0S">
+                                        <rect key="frame" x="46" y="8" width="309" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="2LG-2W-ZyH"/>
@@ -62,7 +62,7 @@
                                     <constraint firstItem="nEy-JD-m1o" firstAttribute="centerY" secondItem="8mA-T9-y0S" secondAttribute="centerY" id="0vP-Uh-3oO"/>
                                     <constraint firstAttribute="bottom" secondItem="8mA-T9-y0S" secondAttribute="bottom" constant="2" id="3Mt-0d-faH"/>
                                     <constraint firstItem="8mA-T9-y0S" firstAttribute="leading" secondItem="nEy-JD-m1o" secondAttribute="trailing" constant="8" id="WaS-ZU-pdl"/>
-                                    <constraint firstAttribute="trailing" secondItem="8mA-T9-y0S" secondAttribute="trailing" id="b3D-Q3-VDR"/>
+                                    <constraint firstAttribute="trailing" secondItem="8mA-T9-y0S" secondAttribute="trailing" constant="20" id="b3D-Q3-VDR"/>
                                     <constraint firstItem="8mA-T9-y0S" firstAttribute="top" secondItem="Irg-Cf-YmB" secondAttribute="top" constant="8" id="hRn-M8-COf"/>
                                     <constraint firstItem="nEy-JD-m1o" firstAttribute="leading" secondItem="Irg-Cf-YmB" secondAttribute="leading" id="lBt-Pz-agn"/>
                                 </constraints>
@@ -93,7 +93,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tur-81-bwE">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tur-81-bwE">
                                             <rect key="frame" x="16" y="12" width="136" height="27.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -107,6 +107,7 @@
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="vLH-8Y-BKh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LbY-ZB-opy"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -139,21 +140,21 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="dSA-dz-ykz" customClass="ShowBusinessesViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B6U-YH-4kh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrN-my-r1d">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qdy-CB-qg2">
-                                        <rect key="frame" x="0.0" y="-64" width="375" height="225"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="375" id="1uU-fH-41d"/>
                                             <constraint firstAttribute="height" constant="225" id="sd2-DO-Ci3"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-rO-EO2">
-                                        <rect key="frame" x="0.0" y="75" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="139" width="375" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edward's Plumbing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGl-o3-lE6">
                                                 <rect key="frame" x="20" y="8" width="223.5" height="30"/>
@@ -179,7 +180,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8L-KS-bPE">
-                                        <rect key="frame" x="0.0" y="161" width="375" height="284.5"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="284.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar1-Mh-7Yj">
                                                 <rect key="frame" x="23" y="101" width="332" height="143.5"/>
@@ -238,7 +239,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhR-Yv-dwo">
-                                        <rect key="frame" x="0.0" y="443.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="507.5" width="375" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZX-0U-AHe">
                                                 <rect key="frame" x="27" y="8" width="73" height="24"/>
@@ -345,7 +346,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                     <constraint firstItem="tZh-rO-EO2" firstAttribute="leading" secondItem="qdy-CB-qg2" secondAttribute="leading" id="owb-Qi-QOR"/>
                                     <constraint firstItem="RhR-Yv-dwo" firstAttribute="top" secondItem="p8L-KS-bPE" secondAttribute="bottom" constant="-1.5" id="qG0-yi-IFU"/>
                                     <constraint firstItem="RhR-Yv-dwo" firstAttribute="trailing" secondItem="p8L-KS-bPE" secondAttribute="trailing" id="urq-Uj-5v9"/>
-                                    <constraint firstItem="qdy-CB-qg2" firstAttribute="top" secondItem="DrN-my-r1d" secondAttribute="top" constant="-64" id="vim-Bu-u9s"/>
+                                    <constraint firstItem="qdy-CB-qg2" firstAttribute="top" secondItem="DrN-my-r1d" secondAttribute="top" id="vim-Bu-u9s"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -360,6 +361,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                         <viewLayoutGuide key="safeArea" id="2Iz-dn-3V9"/>
                     </view>
                     <navigationItem key="navigationItem" id="RIY-69-PeU"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="descLabel" destination="Ar1-Mh-7Yj" id="Wft-4d-8Rg"/>
                         <outlet property="imageView" destination="qdy-CB-qg2" id="pxK-8k-YUK"/>
@@ -862,10 +864,51 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEx-Ga-d08">
-                                <rect key="frame" x="0.0" y="-1" width="375" height="54"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzu-Ua-Nli">
+                                        <rect key="frame" x="24" y="8" width="88" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No price quoted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-Vy-X15">
+                                        <rect key="frame" x="24" y="37" width="106" height="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No date set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZQ-7X-6Ps">
+                                        <rect key="frame" x="162" y="37" width="74" height="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkR-ev-8Sa">
+                                        <rect key="frame" x="142" y="43" width="8" height="8"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="PPb-OH-ZrO"/>
+                                            <constraint firstAttribute="width" secondItem="MkR-ev-8Sa" secondAttribute="height" multiplier="1:1" id="o1V-Jc-RyP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="rfp-yO-nXS"/>
+                                    <constraint firstItem="Tzu-Ua-Nli" firstAttribute="leading" secondItem="LEx-Ga-d08" secondAttribute="leading" constant="24" id="4bd-Px-MI3"/>
+                                    <constraint firstItem="4ZQ-7X-6Ps" firstAttribute="leading" secondItem="MkR-ev-8Sa" secondAttribute="trailing" constant="12" id="L80-xN-x6W"/>
+                                    <constraint firstItem="MkR-ev-8Sa" firstAttribute="leading" secondItem="GKX-Vy-X15" secondAttribute="trailing" constant="12" id="gG7-T7-UPk"/>
+                                    <constraint firstItem="4ZQ-7X-6Ps" firstAttribute="centerY" secondItem="GKX-Vy-X15" secondAttribute="centerY" id="hnI-BL-6Zp"/>
+                                    <constraint firstItem="GKX-Vy-X15" firstAttribute="top" secondItem="Tzu-Ua-Nli" secondAttribute="bottom" constant="8" id="lqr-7C-RgD"/>
+                                    <constraint firstItem="MkR-ev-8Sa" firstAttribute="centerY" secondItem="GKX-Vy-X15" secondAttribute="centerY" id="qIn-Po-6EK"/>
+                                    <constraint firstAttribute="height" constant="70" id="rfp-yO-nXS"/>
+                                    <constraint firstItem="GKX-Vy-X15" firstAttribute="leading" secondItem="Tzu-Ua-Nli" secondAttribute="leading" id="sUX-dq-I6J"/>
+                                    <constraint firstItem="Tzu-Ua-Nli" firstAttribute="top" secondItem="LEx-Ga-d08" secondAttribute="top" constant="8" id="seb-fF-g1u"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -895,11 +938,11 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                     <navigationItem key="navigationItem" id="Xpx-ve-PxI">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="WmV-vh-wvv">
-                            <rect key="frame" x="55" y="22" width="265" height="0.0"/>
+                            <rect key="frame" x="71" y="22" width="265" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cecilia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlp-vV-Whx">
-                                    <rect key="frame" x="106.5" y="-11" width="51" height="21"/>
+                                    <rect key="frame" x="107" y="-11" width="51" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -915,12 +958,13 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="infoView" destination="LEx-Ga-d08" id="BUN-wq-PyC"/>
                         <outlet property="titleLabel" destination="Tlp-vV-Whx" id="lR8-Cc-dql"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niz-HA-Q0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="1534"/>
+            <point key="canvasLocation" x="1872.8" y="1533.2833583208396"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1mb-Wc-KJH">
@@ -1213,11 +1257,11 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                     <size key="itemSize" width="156" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="12" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IVD-yV-pyc">
-                                        <rect key="frame" x="20" y="12" width="156" height="200"/>
+                                        <rect key="frame" x="20" y="20" width="156" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="156" height="200"/>
@@ -1420,6 +1464,6 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s4c-dX-zAk"/>
-        <segue reference="0Oi-eE-a0v"/>
+        <segue reference="qIm-RW-gpN"/>
     </inferredMetricsTieBreakers>
 </document>

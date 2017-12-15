@@ -74,7 +74,7 @@ class ShowBusinessesViewController: UIViewController, ShowBusinessesDisplayLogic
         self.reviewsTableView.register(UINib(nibName: "UserReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.reviewsTableView.rowHeight = UITableViewAutomaticDimension
         self.reviewsTableView.estimatedRowHeight = 150
-        self.navigationController?.clearShadow()
+//        self.navigationController?.clearShadow()
         self.reviewsTableView.tableFooterView = UIView()
         fetchBusiness()
     }

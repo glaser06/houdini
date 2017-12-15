@@ -28,14 +28,29 @@ class ListBusinessesRouter: NSObject, ListBusinessesRoutingLogic, ListBusinesses
     var dataStore: ListBusinessesDataStore?
     
     // MARK: Routing
-    func routeToShowBusiness(segue: UIStoryboardSegue)
-    {
+    func routeToShowBusiness(segue: UIStoryboardSegue) {
+        let destination = segue.destination as! ShowBusinessesViewController
+        var destinationDS = destination.router!.dataStore!
+        passDataToShowBusiness(source: dataStore!, destination: &destinationDS)
         
         
-        let destinationVC = segue.destination as! ShowBusinessesViewController
-        var destinationDS = destinationVC.router!.dataStore!
-        passDataToShowProject(source: dataStore!, destination: &destinationDS)
+        
     }
+    func passDataToShowBusiness(source: ListBusinessesDataStore, destination: inout ShowBusinessesDataStore) {
+        let index = self.viewController!.categoryCollectionView.indexPathsForSelectedItems
+//        let sections = Array(source.businesses.keys)
+//        let section = index!.first!.section
+        let int = index!.first!.item
+        destination.business = source.results[int]
+    }
+//    func routeToShowBusiness(segue: UIStoryboardSegue)
+//    {
+//
+//
+//        let destinationVC = segue.destination as! ShowBusinessesViewController
+//        var destinationDS = destinationVC.router!.dataStore!
+//        passDataToShowProject(source: dataStore!, destination: &destinationDS)
+//    }
     func passDataToShowProject(source: ListBusinessesDataStore, destination: inout ShowBusinessesDataStore) {
         if viewController?.selectedCategory == "Search" {
             destination.business = source.results[viewController!.selectedIndex]

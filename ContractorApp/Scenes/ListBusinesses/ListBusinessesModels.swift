@@ -95,4 +95,18 @@ enum ListBusinesses
             var query: String
         }
     }
+    enum UpdateImage {
+        struct Response
+        {
+            var image: UIImage
+            var section: String
+            var index: Int
+        }
+        struct ViewModel
+        {
+            var image: UIImage
+            var section: String
+            var index: Int
+        }
+    }
 }

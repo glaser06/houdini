@@ -22,6 +22,8 @@ protocol ListBusinessesPresentationLogic
     
     func presentCategories(response: ListBusinesses.FetchCategories.Response)
     
+    func updateImage(response: ListBusinesses.UpdateImage.Response)
+    
     
 }
 
@@ -65,10 +67,15 @@ class ListBusinessesPresenter: ListBusinessesPresentationLogic
         var count = 0
         temp = response.businesses.map { (b) -> ListBusinesses.Search.ViewModel.DisplayableBusiness in
             count += 1
-            return ListBusinesses.Search.ViewModel.DisplayableBusiness(name: b.name, image: b.images[0], rank: count)
+            return ListBusinesses.Search.ViewModel.DisplayableBusiness(name: b.name, image: UIImage(), rank: count)
         }
         let vm = ListBusinesses.Search.ViewModel(businesses: temp, query: response.query)
         self.viewController?.displaySearch(viewModel: vm)
+    }
+    func updateImage(response: ListBusinesses.UpdateImage.Response) {
+        DispatchQueue.main.async {
+            self.viewController?.updateImage(vm: ListBusinesses.UpdateImage.ViewModel(image: response.image, section: "0", index: response.index))
+        }
     }
     func presentCategories(response: ListBusinesses.FetchCategories.Response) {
         self.viewController?.displayCategories(vm: ListBusinesses.FetchCategories.ViewModel(categories: response.categories))

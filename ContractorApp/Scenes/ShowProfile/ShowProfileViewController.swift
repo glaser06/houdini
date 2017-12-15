@@ -16,7 +16,7 @@ import GoogleSignIn
 
 protocol ShowProfileDisplayLogic: class
 {
-    func displaySomething(viewModel: ShowProfile.Something.ViewModel)
+//    func displaySomething(viewModel: ShowProfile.Something.ViewModel)
 }
 
 class ShowProfileViewController: UIViewController, ShowProfileDisplayLogic
@@ -72,7 +72,7 @@ class ShowProfileViewController: UIViewController, ShowProfileDisplayLogic
     {
         super.viewDidLoad()
         self.navigationController?.clearShadow()
-        doSomething()
+        
     }
     
     // MARK: Do something
@@ -88,14 +88,14 @@ class ShowProfileViewController: UIViewController, ShowProfileDisplayLogic
             print ("Error signing out: \(signOutError.localizedDescription)")
         }
     }
-    func doSomething()
-    {
-        let request = ShowProfile.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    func displaySomething(viewModel: ShowProfile.Something.ViewModel)
-    {
-        //nameTextField.text = viewModel.name
-    }
+//    func doSomething()
+//    {
+//        let request = ShowProfile.Something.Request()
+//        interactor?.doSomething(request: request)
+//    }
+//
+//    func displaySomething(viewModel: ShowProfile.Something.ViewModel)
+//    {
+//        //nameTextField.text = viewModel.name
+//    }
 }
