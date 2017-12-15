@@ -24,11 +24,13 @@ class UserReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     
-    func setCell(name: String, desc: String, _ img: UIImage? = #imageLiteral(resourceName: "person1")) {
+    func setCell(name: String, desc: String, _ img: UIImage? = #imageLiteral(resourceName: "person1"), rating: String) {
         self.imgView.image = img ?? #imageLiteral(resourceName: "person1")
         self.nameLabel.text = name
         self.descLabel.text = desc
+        self.ratingLabel.text = rating
     }
     
 }

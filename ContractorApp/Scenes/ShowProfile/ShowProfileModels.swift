@@ -24,10 +24,12 @@ enum ShowProfile
         struct Response
         {
             var name: String
+            var image: UIImage
         }
         struct ViewModel
         {
             var name: String
+            var image: UIImage
         }
     }
 }

@@ -26,12 +26,16 @@ class ShowBusinessesPresenter: ShowBusinessesPresentationLogic
     
     func presentBusiness(response: ShowBusinesses.FetchBusiness.Response) {
         var reviews: [ShowBusinesses.FetchBusiness.ViewModel.DisplayableReview] = []
-        for i in 0...3 {
-            let review = ShowBusinesses.FetchBusiness.ViewModel.DisplayableReview(name: "Jenna Dean", img: #imageLiteral(resourceName: "person1"), review: "Jack is very skilled and always gets the job done right. Make sure you schedule in advance!")
-            reviews.append(review)
+        for r in response.business.reviews {
+            let rev = ShowBusinesses.FetchBusiness.ViewModel.DisplayableReview(name: r.username, img: #imageLiteral(resourceName: "placeholder"), review: r.detail, rating: r.rating)
+            reviews.append(rev)
         }
-        
-        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType[0].displayName, image: response.business.images.first ?? #imageLiteral(resourceName: "placeholder"), reviews: reviews)
+//        for i in 0...3 {
+//            let review = ShowBusinesses.FetchBusiness.ViewModel.DisplayableReview(name: "Jenna Dean", img: #imageLiteral(resourceName: "person1"), review: "Jack is very skilled and always gets the job done right. Make sure you schedule in advance!")
+//            reviews.append(review)
+//        }
+        let count = response.business.reviewCount
+        let vm = ShowBusinesses.FetchBusiness.ViewModel(name: response.business.name, businessType: response.business.businessType[0].displayName, image: response.business.images.first ?? #imageLiteral(resourceName: "placeholder"), phone: response.business.phone, website: response.business.yelpURL, reviewCount: "\(count)", reviews: reviews)
         self.viewController?.displayBusiness(viewModel: vm)
     }
 }

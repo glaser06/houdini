@@ -49,6 +49,10 @@ class ShowBusinessesInteractor: ShowBusinessesBusinessLogic, ShowBusinessesDataS
             } else {
                 self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
             }
+            self.worker.reviews(business: self.business, completion: { (b) in
+                self.business = b
+                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            })
             
             
         }

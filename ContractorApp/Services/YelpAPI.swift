@@ -57,6 +57,7 @@ class YelpAPI {
         let reqURL = "\(url)/v3/businesses/\(id)"
         getRequest(reqURL: reqURL, params: nil, completion: completion)
     }
+    
     static func reviews(for id: String, completion: @escaping ((JSON) -> Void)) {
         let reqURL = "\(url)/v3/businesses/\(id)/reviews"
         getRequest(reqURL: reqURL, params: nil, completion: completion)

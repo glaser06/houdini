@@ -17,6 +17,7 @@ import GoogleSignIn
 protocol ShowProfileDisplayLogic: class
 {
 //    func displaySomething(viewModel: ShowProfile.Something.ViewModel)
+    func displayProfile(vm: ShowProfile.FetchUser.ViewModel)
 }
 
 class ShowProfileViewController: UIViewController, ShowProfileDisplayLogic
@@ -72,12 +73,22 @@ class ShowProfileViewController: UIViewController, ShowProfileDisplayLogic
     {
         super.viewDidLoad()
         self.navigationController?.clearShadow()
+        self.interactor?.fetchUser()
+    }
+    func fetchProfile() {
         
+    }
+    func displayProfile(vm: ShowProfile.FetchUser.ViewModel) {
+        self.profileImage.image = vm.image
+        self.nameLabel.text = vm.name
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     
     @IBAction func signOut(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()

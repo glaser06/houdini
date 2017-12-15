@@ -35,11 +35,16 @@ enum ShowBusinesses
         var name: String
         var businessType: String
         var image: UIImage
+        var phone: String
+        var website: String
+        
+        var reviewCount: String
         
         struct DisplayableReview {
             var name: String
             var img: UIImage
             var review: String
+            var rating: String
         }
         var reviews: [DisplayableReview]
     }

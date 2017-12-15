@@ -12,10 +12,13 @@
 
 import UIKit
 import Firebase
+import Alamofire
+import AlamofireImage
 
 protocol ShowProfileBusinessLogic
 {
 //    func doSomething(request: ShowProfile.Something.Request)
+    func fetchUser() 
 }
 
 protocol ShowProfileDataStore
@@ -35,8 +38,21 @@ class ShowProfileInteractor: ShowProfileBusinessLogic, ShowProfileDataStore
     
     func fetchUser() {
         self.user = Auth.auth().currentUser
-        
+        print(self.user?.photoURL)
+        let imgURL = (self.user?.photoURL)!
         let name: String = (user?.displayName)!
+        Alamofire.request(imgURL).responseImage(completionHandler: { (response) in
+            if let image = response.result.value {
+//                print("whaaa")
+                let vm = ShowProfile.FetchUser.Response(name: name, image: image)
+                self.presenter?.presentProfile(response: vm)
+//                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            } else {
+                let vm = ShowProfile.FetchUser.Response(name: name, image: #imageLiteral(resourceName: "placeholder"))
+                self.presenter?.presentProfile(response: vm)
+//                self.presenter?.presentBusiness(response: ShowBusinesses.FetchBusiness.Response(business: self.business))
+            }
+        })
 //        let img: UIImage = user?.photoURL
         
     }

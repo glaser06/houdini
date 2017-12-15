@@ -13,6 +13,7 @@
 import UIKit
 import UPCarouselFlowLayout
 import Hero
+import CoreLocation
 
 protocol HomeDisplayLogic: class
 {
@@ -85,6 +86,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     var categories: [String] = []
     let layout = UPCarouselFlowLayout()
     
+    var currentLocation: String = ""
+    
+    var locationManager: CLLocationManager! = CLLocationManager()
+    
     var searchVC: ListBusinessesViewController!
     
     override func viewDidLoad()
@@ -105,6 +110,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         //        self.categoriesCollectionView.collectionViewLayout = layout
         self.navigationController?.clearShadow()
         
+        self.setupLocationManager()
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        
         self.categoriesCollectionView.backgroundColor = UIColor.clear
         self.fetchCategories()
         self.fetchBusinesses()
@@ -114,6 +123,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         self.categoriesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
 
     }
@@ -133,7 +143,14 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
     
-    
+    func setupLocationManager() {
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
     
     func fetchCategories() {
         self.interactor?.fetchCategories()
@@ -214,7 +231,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if indexPath.section == 0 {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.categorySection, for: indexPath) as! CategorySection
-            header.setCell(data: [])
+            header.setCell(data: [], location: self.currentLocation)
             return header
         } else {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.titleSection, for: indexPath) as! TitleSectionHeader
@@ -238,6 +255,68 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: self.view.frame.width, height: 328)
         } else {
             return CGSize(width: self.view.frame.width, height: 45)
+        }
+    }
+}
+extension HomeViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue: CLLocationCoordinate2D = locationManager.location!.coordinate
+        
+        let loc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        if self.currentLocation == "" {
+            self.getAdressName(coords: loc)
+            self.categoriesCollectionView.reloadSections([0])
+        }
+    }
+    
+    func getAdressName(coords: CLLocation) {
+        
+        CLGeocoder().reverseGeocodeLocation(coords) { (placemark, error) in
+            if error != nil {
+                
+                print("Hay un error")
+                
+            } else {
+                
+                let place = placemark! as [CLPlacemark]
+                
+                if place.count > 0 {
+                    let place = placemark![0]
+                    
+                    var adressString : String = ""
+                    
+                    if place.thoroughfare != nil {
+                        adressString = adressString + place.thoroughfare! + ", "
+                    }
+                    if place.subThoroughfare != nil {
+                        adressString = adressString + place.subThoroughfare! + "\n"
+                    }
+//                    if place.locality != nil {
+//                        adressString = adressString + place.locality! + " - "
+//                    }
+//                    if place.postalCode != nil {
+//                        adressString = adressString + place.postalCode! + "\n"
+//                    }
+//                    if place.subAdministrativeArea != nil {
+//                        adressString = adressString + place.subAdministrativeArea! + " - "
+//                    }
+//                    if place.country != nil {
+//                        adressString = adressString + place.country!
+//                    }
+                    
+                    self.currentLocation = adressString.trimmingCharacters(in: .whitespacesAndNewlines)
+                    
+                    
+                }
+                
+            }
         }
     }
 }

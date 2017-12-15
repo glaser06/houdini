@@ -49,6 +49,15 @@ class YelpWorker
             
         }
     }
+    func reviews(business: Business, completion: @escaping (Business) -> Void) {
+        YelpAPI.reviews(for: business.id) { (json) in
+            for review in json["reviews"].arrayValue {
+                let r = Review(detail: review["text"].stringValue, url: review["url"].stringValue, rating: "\(review["rating"].intValue)", username: review["user"]["name"].stringValue, userImgURL: review["user"]["image_url"].stringValue, timeCreated: review["time_created"].stringValue)
+                business.reviews.append(r)
+            }
+            completion(business)
+        }
+    }
     func search(params: YelpAPI.SearchParam, completion: @escaping ([Business]) -> Void) {
         
         YelpAPI.search(searchParams: params) { (json) in

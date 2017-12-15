@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrN-my-r1d">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="-64" width="375" height="618"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qdy-CB-qg2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
@@ -156,8 +156,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-rO-EO2">
                                         <rect key="frame" x="0.0" y="139" width="375" height="86"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edward's Plumbing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGl-o3-lE6">
-                                                <rect key="frame" x="20" y="8" width="223.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serhan's Plumbing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGl-o3-lE6">
+                                                <rect key="frame" x="20" y="8" width="218.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -180,17 +180,8 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8L-KS-bPE">
-                                        <rect key="frame" x="0.0" y="225" width="375" height="284.5"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="195"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar1-Mh-7Yj">
-                                                <rect key="frame" x="23" y="101" width="332" height="143.5"/>
-                                                <string key="text">Jack’s Carpentry has been serving the Pittsburgh area for the past 20 years. We take pride in helping local households with a wide variety of projects.
-
-Services: wood paneling, door casing, drywall, wood decks, door installation, fences, countertops</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df9-5V-cZ2">
                                                 <rect key="frame" x="23" y="24" width="161.5" height="53"/>
                                                 <color key="backgroundColor" red="0.98039215690000003" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,24 +213,79 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="YN5-95-v1k">
+                                                <rect key="frame" x="23" y="101" width="29" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="YN5-95-v1k" secondAttribute="height" multiplier="1:1" id="Niz-rD-CV5"/>
+                                                    <constraint firstAttribute="height" constant="29" id="lZI-WJ-DA0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(412) 242 - 2444" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0v-3n-IZY">
+                                                <rect key="frame" x="68" y="105" width="133" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-Kr-nTs">
+                                                <rect key="frame" x="225" y="145" width="128" height="35"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="Website"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-R8-c0Z">
+                                                <rect key="frame" x="23" y="145" width="128" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="2Dq-JF-gOS"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="View on Yelp"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Ar1-Mh-7Yj" secondAttribute="trailing" constant="20" id="A4i-SU-vdy"/>
+                                            <constraint firstItem="3XH-R8-c0Z" firstAttribute="top" secondItem="YN5-95-v1k" secondAttribute="bottom" constant="15" id="56J-w2-hV8"/>
+                                            <constraint firstItem="YN5-95-v1k" firstAttribute="top" secondItem="Df9-5V-cZ2" secondAttribute="bottom" constant="24" id="8vF-M4-v9g"/>
                                             <constraint firstItem="nWv-mX-IWG" firstAttribute="leading" secondItem="Df9-5V-cZ2" secondAttribute="trailing" constant="31" id="Diz-WR-tbm"/>
-                                            <constraint firstItem="Ar1-Mh-7Yj" firstAttribute="leading" secondItem="p8L-KS-bPE" secondAttribute="leading" constant="23" id="DqO-Bt-kUW"/>
+                                            <constraint firstAttribute="bottom" secondItem="3XH-R8-c0Z" secondAttribute="bottom" constant="15" id="FkO-MX-g6h"/>
                                             <constraint firstAttribute="trailing" secondItem="nWv-mX-IWG" secondAttribute="trailing" constant="30" id="OKi-aj-8Be"/>
                                             <constraint firstItem="qX5-lS-DUF" firstAttribute="centerX" secondItem="nWv-mX-IWG" secondAttribute="centerX" id="QgH-hq-4vZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ar1-Mh-7Yj" secondAttribute="bottom" constant="40" id="SsQ-JZ-e7u"/>
+                                            <constraint firstAttribute="trailing" secondItem="YLy-Kr-nTs" secondAttribute="trailing" constant="22" id="V2T-nu-fP3"/>
+                                            <constraint firstItem="YLy-Kr-nTs" firstAttribute="height" secondItem="3XH-R8-c0Z" secondAttribute="height" id="YKK-A1-IlO"/>
+                                            <constraint firstItem="x0v-3n-IZY" firstAttribute="leading" secondItem="YN5-95-v1k" secondAttribute="trailing" constant="16" id="bd5-vk-8a5"/>
+                                            <constraint firstItem="x0v-3n-IZY" firstAttribute="centerY" secondItem="YN5-95-v1k" secondAttribute="centerY" id="c03-1C-a7V"/>
                                             <constraint firstItem="nWv-mX-IWG" firstAttribute="top" secondItem="Df9-5V-cZ2" secondAttribute="top" constant="2" id="eaz-Qi-q6d"/>
-                                            <constraint firstItem="Ar1-Mh-7Yj" firstAttribute="top" secondItem="Df9-5V-cZ2" secondAttribute="bottom" constant="24" id="fOf-YX-Vei"/>
                                             <constraint firstItem="qX5-lS-DUF" firstAttribute="bottom" secondItem="Df9-5V-cZ2" secondAttribute="bottom" constant="-2" id="gQM-54-os0"/>
+                                            <constraint firstItem="YN5-95-v1k" firstAttribute="leading" secondItem="Df9-5V-cZ2" secondAttribute="leading" id="gYm-QM-CpL"/>
                                             <constraint firstItem="Df9-5V-cZ2" firstAttribute="leading" secondItem="p8L-KS-bPE" secondAttribute="leading" constant="23" id="hgb-ZY-Ac2"/>
+                                            <constraint firstItem="YLy-Kr-nTs" firstAttribute="width" secondItem="3XH-R8-c0Z" secondAttribute="width" id="o5m-0d-Zrv"/>
+                                            <constraint firstItem="YLy-Kr-nTs" firstAttribute="centerY" secondItem="3XH-R8-c0Z" secondAttribute="centerY" id="q1c-Lb-qGU"/>
                                             <constraint firstItem="Df9-5V-cZ2" firstAttribute="top" secondItem="p8L-KS-bPE" secondAttribute="top" constant="24" id="rLO-kg-est"/>
+                                            <constraint firstItem="3XH-R8-c0Z" firstAttribute="leading" secondItem="YN5-95-v1k" secondAttribute="leading" id="vjx-LS-NbP"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhR-Yv-dwo">
-                                        <rect key="frame" x="0.0" y="507.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="418" width="375" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZX-0U-AHe">
                                                 <rect key="frame" x="27" y="8" width="73" height="24"/>
@@ -355,7 +401,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                             <constraint firstItem="p8L-KS-bPE" firstAttribute="width" secondItem="B6U-YH-4kh" secondAttribute="width" id="2Th-gb-pgj"/>
                             <constraint firstAttribute="trailing" secondItem="DrN-my-r1d" secondAttribute="trailing" id="4nP-av-QJX"/>
                             <constraint firstItem="DrN-my-r1d" firstAttribute="bottom" secondItem="2Iz-dn-3V9" secondAttribute="bottom" id="Uo6-wV-HIs"/>
-                            <constraint firstItem="DrN-my-r1d" firstAttribute="top" secondItem="B6U-YH-4kh" secondAttribute="top" id="hdy-rP-gFV"/>
+                            <constraint firstItem="DrN-my-r1d" firstAttribute="top" secondItem="B6U-YH-4kh" secondAttribute="top" constant="-64" id="hdy-rP-gFV"/>
                             <constraint firstItem="DrN-my-r1d" firstAttribute="leading" secondItem="B6U-YH-4kh" secondAttribute="leading" id="vvy-t8-O51"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Iz-dn-3V9"/>
@@ -363,16 +409,17 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                     <navigationItem key="navigationItem" id="RIY-69-PeU"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="descLabel" destination="Ar1-Mh-7Yj" id="Wft-4d-8Rg"/>
                         <outlet property="imageView" destination="qdy-CB-qg2" id="pxK-8k-YUK"/>
                         <outlet property="nameLabel" destination="xGl-o3-lE6" id="qFP-WV-VQ1"/>
+                        <outlet property="phoneLabel" destination="x0v-3n-IZY" id="f6t-Gd-W3k"/>
+                        <outlet property="reviewCountLabel" destination="6JF-bp-HRz" id="ymy-Pf-ubw"/>
                         <outlet property="reviewsTableView" destination="HJT-4q-pDN" id="Kiq-G6-fTy"/>
                         <outlet property="tableHeight" destination="l7b-cz-Wgj" id="p21-yN-5Jb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmU-jx-Ghy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2070" y="887"/>
+            <point key="canvasLocation" x="2069.5999999999999" y="886.50674662668678"/>
         </scene>
         <!--Add Project View Controller-->
         <scene sceneID="ajN-jB-fXV">
@@ -1170,6 +1217,10 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
                             <color key="tintColor" red="0.98039215690000003" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameLabel" destination="CtM-he-Ath" id="548-my-9sl"/>
+                        <outlet property="profileImage" destination="LRa-l0-LeL" id="H5a-W5-hra"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYq-Jb-6qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1457,6 +1508,7 @@ Services: wood paneling, door casing, drywall, wood decks, door installation, fe
         <image name="house" width="25" height="25"/>
         <image name="landscaping" width="500" height="334"/>
         <image name="person1" width="851" height="750"/>
+        <image name="phone" width="25" height="25"/>
         <image name="plus-black" width="25" height="25"/>
         <image name="search" width="25" height="25"/>
         <image name="star-filled" width="25" height="25"/>

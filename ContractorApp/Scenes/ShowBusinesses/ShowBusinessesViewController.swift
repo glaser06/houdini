@@ -76,6 +76,7 @@ class ShowBusinessesViewController: UIViewController, ShowBusinessesDisplayLogic
         self.reviewsTableView.estimatedRowHeight = 150
 //        self.navigationController?.clearShadow()
         self.reviewsTableView.tableFooterView = UIView()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         fetchBusiness()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -91,8 +92,13 @@ class ShowBusinessesViewController: UIViewController, ShowBusinessesDisplayLogic
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
+//    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var reviewCountLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+//    @IBOutlet weak var websiteLabel: UILabel!
+    
     @IBOutlet weak var reviewsTableView: UITableView!
+    
     
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
 //    @IBOutlet weak var jobType: UILabel!
@@ -103,6 +109,9 @@ class ShowBusinessesViewController: UIViewController, ShowBusinessesDisplayLogic
     func displayBusiness(viewModel: ShowBusinesses.FetchBusiness.ViewModel) {
         self.imageView.image = viewModel.image
         self.nameLabel.text = viewModel.name
+        self.phoneLabel.text = viewModel.phone
+        self.reviewCountLabel.text = viewModel.reviewCount
+//        self.websiteLabel.text = viewModel.website
         self.reviews = viewModel.reviews
         self.reviewsTableView.reloadData()
         let height = self.reviewsTableView.contentSize.height
@@ -126,7 +135,7 @@ extension ShowBusinessesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! UserReviewTableViewCell
         let review = self.reviews[indexPath.row]
-        cell.setCell(name: review.name, desc: review.review, review.img)
+        cell.setCell(name: review.name, desc: review.review, review.img, rating: review.rating)
         return cell
     }
 }

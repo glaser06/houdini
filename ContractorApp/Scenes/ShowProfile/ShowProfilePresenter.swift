@@ -15,6 +15,7 @@ import UIKit
 protocol ShowProfilePresentationLogic
 {
 //  func presentSomething(response: ShowProfile.Something.Response)
+    func presentProfile(response: ShowProfile.FetchUser.Response)
 }
 
 class ShowProfilePresenter: ShowProfilePresentationLogic
@@ -22,6 +23,8 @@ class ShowProfilePresenter: ShowProfilePresentationLogic
   weak var viewController: ShowProfileDisplayLogic?
   
   // MARK: Do something
-  
+    func presentProfile(response: ShowProfile.FetchUser.Response) {
+        self.viewController?.displayProfile(vm: ShowProfile.FetchUser.ViewModel(name: response.name, image: response.image))
+    }
   
 }

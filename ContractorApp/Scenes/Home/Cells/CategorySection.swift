@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CategorySection: UICollectionReusableView {
 
@@ -18,18 +19,31 @@ class CategorySection: UICollectionReusableView {
     }
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
+    @IBOutlet weak var locationLabel: UIButton!
     
     var cellData: [( String, (Int, UIImage?))] = []
+    var locationManager: CLLocationManager = CLLocationManager()
     
-    func setCell(data: [(String, Int, UIImage?)]) {
+    func setCell(data: [(String, Int, UIImage?)], location: String) {
+//        self.locationManager.delegate = delegate
+//        self.setupLocationManager()
         let cats = ["AC and Heating", "Handyman",  "Electrician", "Home Cleaner", "Landscaper", "Roofing", "Mover", "Painter", "Plumber"]
         let imgs: [UIImage?] = [UIImage(named: "acrepair"),UIImage(named: "carpenter"),UIImage(named: "electrician"),UIImage(named: "cleaners"),UIImage(named: "landscaping"),UIImage(named: "roofing"),UIImage(named: "movers"),UIImage(named: "painter"),UIImage(named: "plumber2"), ]
         let counts: [Int] = [1,2,3,4,5,6,7,8,9]
-        
+        locationLabel.setTitle(location, for: .normal)
         let zipped = Array(zip(cats, zip(counts, imgs)))
         self.cellData = zipped
         self.categoriesCollectionView.reloadData()
+        
     }
+//    func setupLocationManager() {
+//        self.locationManager.requestWhenInUseAuthorization()
+//        if CLLocationManager.locationServicesEnabled() {
+//
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
+//    }
     
 }
 

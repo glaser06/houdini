@@ -133,6 +133,9 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
             let firstTextField = alertController.textFields![0] as UITextField
             firstTextField.resignFirstResponder()
             self.view.endEditing(true)
+            if firstTextField.text == nil || firstTextField.text == "" {
+                return
+            }
             self.interactor?.sendQuote(request: Message.SendQuote.Request(message: Message.QuoteMessage(message: "", sender: "", quotePrice: Double(firstTextField.text!)!, quoteDescription: "", messageID: "")))
 //            let secondTextField = alertController.textFields![1] as UITextField
             
