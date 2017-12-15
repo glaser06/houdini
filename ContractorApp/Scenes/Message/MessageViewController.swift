@@ -18,6 +18,8 @@ import Photos
 protocol MessageDisplayLogic: class
 {
     func displayMessages(vm: Message.FetchMessages.ViewModel)
+    func displaySchedule(vm: Message.UpdateSchedule.ViewModel)
+    func displayQuote(vm: Message.UpdateQuote.ViewModel)
 }
 
 class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavigationControllerDelegate
@@ -101,6 +103,7 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         self.tableView?.estimatedRowHeight = 200
         self.tableView?.separatorStyle = .none
         self.tableView?.allowsSelection = false
+        self.tableView?.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
         self.interactor?.configureDatabase()
         self.interactor?.configureStorage()
         fetchMessages()
@@ -111,6 +114,9 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var projectLabel: UILabel!
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var scheduleLabel: UILabel!
     
     // MARK: Do something
     
@@ -164,7 +170,14 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         self.messages = vm.messages
         self.view.bringSubview(toFront: self.infoView)
         self.titleLabel.text = vm.businessName
+        self.projectLabel.text = vm.projectName
         self.tableView?.reloadData()
+    }
+    func displaySchedule(vm: Message.UpdateSchedule.ViewModel) {
+        self.scheduleLabel.text = vm.schedule
+    }
+    func displayQuote(vm: Message.UpdateQuote.ViewModel) {
+        self.quoteLabel.text = vm.quotePrice
     }
     func addActionSheet() {
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -175,12 +188,18 @@ class MessageViewController: SLKTextViewController, MessageDisplayLogic, UINavig
         let quote = UIAlertAction(title: "Quote", style: .default) { (action) in
             self.sendQuote()
         }
+//        let payment = UIAlertAction(title: "Payment", style: .default) { (action) in
+//            self.sendPayment()
+//        }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         sheet.addAction(camera)
         sheet.addAction(quote)
         sheet.addAction(cancel)
         self.navigationController?.present(sheet, animated: true, completion: nil)
         
+    }
+    func sendPayment() {
+        self.performSegue(withIdentifier: "Payment", sender: self)
     }
     func showCamera() {
         let picker = UIImagePickerController()

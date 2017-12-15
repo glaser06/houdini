@@ -22,6 +22,8 @@ class Conversation {
     var conversationID: String
     var projectName: String = ""
     var contractorID: String
+    var quoteID: String = ""
+    var scheduleID: String = ""
     
     
     init(name: String, convoID: String, yelpID: String, _ img: UIImage? = nil, cID: String) {

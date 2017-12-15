@@ -911,7 +911,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEx-Ga-d08">
-                                <rect key="frame" x="0.0" y="-1" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzu-Ua-Nli">
                                         <rect key="frame" x="24" y="8" width="88" height="21"/>
@@ -944,6 +944,22 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szP-jh-yBi">
+                                        <rect key="frame" x="326" y="20" width="41" height="26"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                        <state key="normal" title="Pay">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="zwj-eP-yYY" kind="show" id="wMX-f9-u30"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -951,9 +967,11 @@
                                     <constraint firstItem="4ZQ-7X-6Ps" firstAttribute="leading" secondItem="MkR-ev-8Sa" secondAttribute="trailing" constant="12" id="L80-xN-x6W"/>
                                     <constraint firstItem="MkR-ev-8Sa" firstAttribute="leading" secondItem="GKX-Vy-X15" secondAttribute="trailing" constant="12" id="gG7-T7-UPk"/>
                                     <constraint firstItem="4ZQ-7X-6Ps" firstAttribute="centerY" secondItem="GKX-Vy-X15" secondAttribute="centerY" id="hnI-BL-6Zp"/>
+                                    <constraint firstAttribute="trailing" secondItem="szP-jh-yBi" secondAttribute="trailing" constant="8" id="hrB-yD-rIN"/>
+                                    <constraint firstItem="szP-jh-yBi" firstAttribute="centerY" secondItem="LEx-Ga-d08" secondAttribute="centerY" id="lk8-MI-O3u"/>
                                     <constraint firstItem="GKX-Vy-X15" firstAttribute="top" secondItem="Tzu-Ua-Nli" secondAttribute="bottom" constant="8" id="lqr-7C-RgD"/>
                                     <constraint firstItem="MkR-ev-8Sa" firstAttribute="centerY" secondItem="GKX-Vy-X15" secondAttribute="centerY" id="qIn-Po-6EK"/>
-                                    <constraint firstAttribute="height" constant="70" id="rfp-yO-nXS"/>
+                                    <constraint firstAttribute="height" constant="66" id="rfp-yO-nXS"/>
                                     <constraint firstItem="GKX-Vy-X15" firstAttribute="leading" secondItem="Tzu-Ua-Nli" secondAttribute="leading" id="sUX-dq-I6J"/>
                                     <constraint firstItem="Tzu-Ua-Nli" firstAttribute="top" secondItem="LEx-Ga-d08" secondAttribute="top" constant="8" id="seb-fF-g1u"/>
                                 </constraints>
@@ -985,7 +1003,7 @@
                     <navigationItem key="navigationItem" id="Xpx-ve-PxI">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="WmV-vh-wvv">
-                            <rect key="frame" x="71" y="22" width="265" height="0.0"/>
+                            <rect key="frame" x="72" y="22" width="265" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cecilia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlp-vV-Whx">
@@ -1006,6 +1024,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="infoView" destination="LEx-Ga-d08" id="BUN-wq-PyC"/>
+                        <outlet property="projectLabel" destination="Tzu-Ua-Nli" id="gX3-1w-1Dx"/>
+                        <outlet property="quoteLabel" destination="GKX-Vy-X15" id="N45-fP-Thp"/>
+                        <outlet property="scheduleLabel" destination="4ZQ-7X-6Ps" id="IQV-wv-l8T"/>
                         <outlet property="titleLabel" destination="Tlp-vV-Whx" id="lR8-Cc-dql"/>
                     </connections>
                 </viewController>
@@ -1068,6 +1089,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhe-CZ-qav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2649" y="1535"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="HO2-6D-2My">
+            <objects>
+                <viewController id="zwj-eP-yYY" customClass="PaymentViewController" customModule="ContractorApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="faw-hA-1Jz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Y2f-sI-IJd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t93-O7-Juc">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="6Bk-WA-NvT">
+                            <connections>
+                                <action selector="close" destination="zwj-eP-yYY" id="47i-JR-W0n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVp-Pd-57a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="2205"/>
         </scene>
         <!--Show Profile View Controller-->
         <scene sceneID="cob-28-xdY">

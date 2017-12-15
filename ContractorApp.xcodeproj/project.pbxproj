@@ -27,6 +27,12 @@
 		E34A559D1FCDFA460095659F /* YelpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A559C1FCDFA460095659F /* YelpAPI.swift */; };
 		E34A559F1FCE177D0095659F /* YelpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A559E1FCE177D0095659F /* YelpWorker.swift */; };
 		E34A55A21FCECAC60095659F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34A55A11FCECAC50095659F /* GoogleService-Info.plist */; };
+		E350FDE41FE3CC36002F4A55 /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDDE1FE3CC36002F4A55 /* PaymentInteractor.swift */; };
+		E350FDE51FE3CC36002F4A55 /* PaymentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDDF1FE3CC36002F4A55 /* PaymentModels.swift */; };
+		E350FDE61FE3CC36002F4A55 /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDE01FE3CC36002F4A55 /* PaymentPresenter.swift */; };
+		E350FDE71FE3CC36002F4A55 /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDE11FE3CC36002F4A55 /* PaymentRouter.swift */; };
+		E350FDE81FE3CC36002F4A55 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDE21FE3CC36002F4A55 /* PaymentViewController.swift */; };
+		E350FDE91FE3CC36002F4A55 /* PaymentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350FDE31FE3CC36002F4A55 /* PaymentWorker.swift */; };
 		E35AA6211FB2E18A005595B1 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */; };
 		E35AA6221FB2E18A005595B1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61C1FB2E18A005595B1 /* HomeModels.swift */; };
 		E35AA6231FB2E18A005595B1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */; };
@@ -171,6 +177,12 @@
 		E34A559E1FCE177D0095659F /* YelpWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpWorker.swift; sourceTree = "<group>"; };
 		E34A55A01FCE5CE40095659F /* ContractorApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContractorApp.entitlements; sourceTree = "<group>"; };
 		E34A55A11FCECAC50095659F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E350FDDE1FE3CC36002F4A55 /* PaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInteractor.swift; sourceTree = "<group>"; };
+		E350FDDF1FE3CC36002F4A55 /* PaymentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModels.swift; sourceTree = "<group>"; };
+		E350FDE01FE3CC36002F4A55 /* PaymentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		E350FDE11FE3CC36002F4A55 /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
+		E350FDE21FE3CC36002F4A55 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		E350FDE31FE3CC36002F4A55 /* PaymentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWorker.swift; sourceTree = "<group>"; };
 		E35AA61B1FB2E18A005595B1 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E35AA61C1FB2E18A005595B1 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		E35AA61D1FB2E18A005595B1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -330,6 +342,19 @@
 				E325B2131FBC72910023215F /* SignInWorker.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		E350FDDD1FE3CC04002F4A55 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				E350FDE21FE3CC36002F4A55 /* PaymentViewController.swift */,
+				E350FDDE1FE3CC36002F4A55 /* PaymentInteractor.swift */,
+				E350FDE01FE3CC36002F4A55 /* PaymentPresenter.swift */,
+				E350FDDF1FE3CC36002F4A55 /* PaymentModels.swift */,
+				E350FDE11FE3CC36002F4A55 /* PaymentRouter.swift */,
+				E350FDE31FE3CC36002F4A55 /* PaymentWorker.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		E35AA61A1FB2E176005595B1 /* Home */ = {
@@ -514,6 +539,7 @@
 		E3AF2A6D1FA060BD00683FD0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E350FDDD1FE3CC04002F4A55 /* Payment */,
 				E325B20D1FBC727D0023215F /* SignIn */,
 				E3F9E5101FB377E800ADEEB0 /* RequestQuoteViewController.swift */,
 				E35AA61A1FB2E176005595B1 /* Home */,
@@ -863,6 +889,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ContractorApp/Pods-ContractorApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -872,6 +899,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UPCarouselFlowLayout/UPCarouselFlowLayout.framework",
@@ -882,6 +910,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -891,6 +920,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UPCarouselFlowLayout.framework",
@@ -1034,6 +1064,7 @@
 				E325B2191FBC72910023215F /* SignInWorker.swift in Sources */,
 				E39E8D111F8E2ABC00CF11B6 /* ViewController.swift in Sources */,
 				E35AA6231FB2E18A005595B1 /* HomePresenter.swift in Sources */,
+				E350FDE51FE3CC36002F4A55 /* PaymentModels.swift in Sources */,
 				E35AA6211FB2E18A005595B1 /* HomeInteractor.swift in Sources */,
 				E35F21D01FA0FA7D006C57E0 /* ShowInboxModels.swift in Sources */,
 				E3AF2A7D1FA0912B00683FD0 /* AddProjectInteractor.swift in Sources */,
@@ -1046,18 +1077,22 @@
 				E35F21D11FA0FA7D006C57E0 /* ShowInboxPresenter.swift in Sources */,
 				E3F9E5111FB377E800ADEEB0 /* RequestQuoteViewController.swift in Sources */,
 				E39E8D3D1F8E34FE00CF11B6 /* UIViewExtensions.swift in Sources */,
+				E350FDE81FE3CC36002F4A55 /* PaymentViewController.swift in Sources */,
 				E35F21CF1FA0FA7D006C57E0 /* ShowInboxInteractor.swift in Sources */,
 				E3AF2A811FA0912B00683FD0 /* AddProjectViewController.swift in Sources */,
 				E341422E1FCD16BA0084F591 /* CategorySection.swift in Sources */,
+				E350FDE71FE3CC36002F4A55 /* PaymentRouter.swift in Sources */,
 				E3AF2A761FA08E2300683FD0 /* User.swift in Sources */,
 				E3AF2A8F1FA0914900683FD0 /* ShowBusinessesWorker.swift in Sources */,
 				E35AA6241FB2E18A005595B1 /* HomeRouter.swift in Sources */,
 				E35F21AD1FA0D4C6006C57E0 /* MessageInteractor.swift in Sources */,
 				E341423A1FCD69990084F591 /* BusinessHomeCell.swift in Sources */,
 				E39E8D0F1F8E2ABC00CF11B6 /* AppDelegate.swift in Sources */,
+				E350FDE41FE3CC36002F4A55 /* PaymentInteractor.swift in Sources */,
 				E35AA62A1FB2E1E8005595B1 /* TallContractorCollectionCell.swift in Sources */,
 				E35F21B11FA0D4C6006C57E0 /* MessageViewController.swift in Sources */,
 				E35F219C1FA0C863006C57E0 /* ListProjectsInteractor.swift in Sources */,
+				E350FDE91FE3CC36002F4A55 /* PaymentWorker.swift in Sources */,
 				E34A559D1FCDFA460095659F /* YelpAPI.swift in Sources */,
 				E3AF2A7E1FA0912B00683FD0 /* AddProjectModels.swift in Sources */,
 				E3A18E4A1FB33617008E9385 /* ShowProfileViewController.swift in Sources */,
@@ -1073,6 +1108,7 @@
 				E35F21B81FA0D6B8006C57E0 /* SettingsTableCell.swift in Sources */,
 				E3AF2AA91FA0936100683FD0 /* AddMultimediaViewController.swift in Sources */,
 				E325B2181FBC72910023215F /* SignInViewController.swift in Sources */,
+				E350FDE61FE3CC36002F4A55 /* PaymentPresenter.swift in Sources */,
 				E3AF2A8C1FA0914900683FD0 /* ShowBusinessesPresenter.swift in Sources */,
 				E35F21A11FA0C863006C57E0 /* ListProjectsWorker.swift in Sources */,
 				E3AF2AA71FA0936100683FD0 /* AddMultimediaPresenter.swift in Sources */,

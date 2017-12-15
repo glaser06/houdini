@@ -16,6 +16,7 @@ target 'ContractorApp' do
     pod 'Alamofire', '~> 4.5'
     pod 'AlamofireImage', '~> 3.3'
     pod 'SwiftyJSON'
+    pod 'Eureka'
 
     pod 'Firebase/AdMob'
     pod 'Firebase/Auth'
@@ -24,6 +25,8 @@ target 'ContractorApp' do
     pod 'Firebase/Invites'
     pod 'Firebase/RemoteConfig'
     pod 'Firebase/Storage'
+    
+    pod 'Stripe'
     
     target 'ContractorAppTests' do
         inherit! :search_paths

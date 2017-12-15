@@ -70,13 +70,35 @@ enum Message
         {
             var userName: String
             var businessName: String
+            var projectName: String
             var messages: [GenericMessage]
         }
         struct ViewModel
         {
             var userName: String
             var businessName: String
+            var projectName: String
             var messages: [GenericMessage]
+        }
+    }
+    enum UpdateQuote {
+        struct Request
+        {}
+        struct Response {
+            var quotePrice: Double?
+        }
+        struct ViewModel {
+            var quotePrice: String
+        }
+    }
+    enum UpdateSchedule {
+        struct Request
+        {}
+        struct Response {
+            var schedule: Date?
+        }
+        struct ViewModel {
+            var schedule: String
         }
     }
     enum SendQuote {

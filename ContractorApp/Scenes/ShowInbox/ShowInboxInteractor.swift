@@ -54,6 +54,7 @@ class ShowInboxInteractor: ShowInboxBusinessLogic, ShowInboxDataStore
         self.conversations = []
         ref = Database.database().reference()
         if let user = Auth.auth().currentUser {
+            
             var userRef = self.ref.child("users").child(user.uid)
             self._refHandle = userRef.child("conversations").observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
                 
@@ -63,7 +64,15 @@ class ShowInboxInteractor: ShowInboxBusinessLogic, ShowInboxDataStore
                 let name = data?["contractorName"] as? String
                 let yelpID = data?["yelpID"] as? String
                 let contractorID = data?["contractorID"] as? String
-                let convo = Conversation(name: name!, convoID: snapshot.key, yelpID: yelpID!, cID: contractorID!)
+                let uid = data?["userID"] as? String
+                let username = (data?["userName"] as? String) ?? ""
+                let quoteID = (data?["quoteID"] as? String) ?? ""
+                let scheduleID = (data?["scheduleID"] as? String) ?? ""
+                let projectName = data?["projectName"] as? String
+                let convo = Conversation(name: name!, convoID: snapshot.key, yelpID: yelpID!, cID: contractorID ?? "")
+                convo.projectName = projectName!
+                convo.quoteID = quoteID
+                convo.scheduleID = scheduleID
                 strongSelf.conversations.insert(convo, at: 0)
 //                strongSelf.conversations.append(convo)
                 strongSelf.presenter?.presentInbox(response: ShowInbox.FetchInbox.Response(conversations: strongSelf.conversations))

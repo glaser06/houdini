@@ -66,7 +66,8 @@ class AddProjectInteractor: AddProjectBusinessLogic, AddProjectDataStore
             "updatedAt": Date().timeIntervalSince1970,
             "userID": Auth.auth().currentUser!.uid,
             "yelpID": self.business.id,
-            "projectName": request.name
+            "projectName": request.name,
+            "userName": (Auth.auth().currentUser?.displayName)!
         ]
 //        mdata["name"] = Auth.auth().currentUser?.displayName ?? ""
 //        if let photoURL = Auth.auth().currentUser?.photoURL {
